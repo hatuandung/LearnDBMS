@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="" />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL Optimization</h1>
+<p>SQL Statements are used to retrieve data from the database. We can get same results by writing different SQL queries. But use of the best query is important when performance is considered. So you need to SQL query tuning based on the requirement. Here is the list of queries which we use regularly and how these SQL queries can be optimized for better performance.</p>
+<hr />
+<h2>Actual column names instead of *</h2>
+<p>The SQL query becomes faster if you use the actual column names in SELECT statement instead of <i>*</i>.</p>
+<h3>Write the query as</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT P_Id, FirstName, LastName, Address, City<br />FROM Persons</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>Instead of</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT *<br />FROM Persons</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>HAVING clause is like a filter</h2>
+<p>HAVING clause is used to filter the rows after all the rows are selected. It is just like a filter. Do not use HAVING clause for any other purposes.</p>
+<h3>Write the query as</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT FirstName, COUNT(FirstName)<br />
+FROM Persons<br />
+WHERE FirstName <> 'John'<br />
+AND FirstName <> 'Kate'<br />
+GROUP BY FirstName</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>Instead of</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT FirstName, COUNT(FirstName)<br />
+FROM Persons<br />
+GROUP BY FistName<br />
+HAVING FirstName <> 'John'<br />
+AND FirstName <> 'Kate'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>The number of subquery block in query</h2>
+<p>Sometimes you may have more than one subqueries in your main query. Try to minimize the number of subquery block in your query.</p>
+<h3>Write the query as</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Name<br />
+FROM Employees<br />
+WHERE (Salary, Age ) = (SELECT MAX(Salary), MAX(Age)<br />
+FROM EmployeeDetails)<br />
+AND Dept = 'Electronics'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>Instead of</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Name<br />
+FROM Employees<br />
+WHERE Salary = (SELECT MAX(Salary) FROM EmployeeDetails)<br />
+AND Age = (SELECT MAX(Age) FROM EmployeeDetails)<br />
+AND Dept = 'Electronics';</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>Efficient use of EXISTS and IN</h2>
+<p>Use operator EXISTS, IN and table joins appropriately in your query.</p>
+<p><ul>
+<li>Usually IN has the slowest performance;
+<li>IN is efficient when most of the filter criteria is in the subquery;
+<li>EXISTS is efficient when most of the filter criteria is in the main query.
+</ul></p>
+<h3>Write the query as</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM Products<br />
+WHERE EXISTS (select * from OrderItems<br />
+WHERE Product_Id = Product_Id_p) </td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>Instead of</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM Products<br />
+WHERE Product_Id IN<br />
+(SELECT Product_Id FROM OrderItems</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>Using EXISTS instead of DISTINCT</h2>
+<p>Use EXISTS instead of DISTINCT when using joins which involves tables having one-to-many relationships.</p>
+<h3>Write the query as</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT D.Dept_Id, D.Dept<br />
+FROM Dept.D<br />
+WHERE EXISTS ( SELECT 'X' FROM Employees WHERE E.Dept = D.Dept)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>Instead of</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT DISTINCT D.Dept_Id, D.Dept<br />
+FROM Dept.D, Employees<br />
+WHERE E.Dept = E.Dept</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>UNION ALL in place of UNION</h2>
+<p>Try to use UNION ALL in place of UNION.</p>
+<h3>Write the query as</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Id, FirstName<br />
+FROM Students<br />
+UNION ALL<br />
+SELECT Id, FirstName<br />
+FROM SportsTeam</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>Instead of</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Id, FistName, Subject<br />
+FROM Students<br />
+UNION<br />
+SELECT Id, FirstName<br />
+FROM SportsTeam</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>Conditions in WHERE clause</h2>
+<p>Be careful while using conditions in WHERE clause.</p>
+<h3>Write the query as</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Id, FirstName, Age<br />
+    FROM Persons WHERE Age > 25</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>Instead of</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Id, FirstName, Age<br />
+    FROM Persons WHERE Age <> 25</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br /><br /><br />
+<h3>Write the query as</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Id, FirstName, Age<br />
+FROM Persons<br />
+WHERE FirtName LIKE 'Chan%'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>Instead of</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Id, FirstName, Age<br />
+FROM Persons<br />
+WHERE SUBSTR(FirstName, 1, 3) = 'Cha'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br /><br /><br />
+<p>Use non-column expression on one side of the query because it will be processed earlier.</p>
+<h3>Write the query as</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Id, Name, Salary<br />
+FROM Employees<br />
+WHERE Salary < 25000</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>Instead of</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Id, Name, Salary<br />
+FROM Employees<br />
+WHERE Salary + 10000 < 35000</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>Use DECODE to avoid the scanning of same rows</h2>
+<p>Use DECODE to avoid the scanning of same rows or joining the same table repetitively. DECODE can also be made used in place of GROUP BY or ORDER BY.</p>
+<h3>Write the query as</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Id FROM Employees<br />
+WHERE Name LIKE 'Ramesh%'<br />
+AND Location = 'Bangalore'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>Instead of</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT DECODE(Location, 'Bangalore', Id, NULL) Id<br />
+FROM Employees<br />
+WHERE Name LIKE 'Ramesh%'; </td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>Storing large binary objects</h2>
+<p>To store large binary objects, first place them in the file system and add the file path in the database.</p>
+<hr />
+<h2>General SQL Standard Rules</h2>
+<p>To write queries which provide efficient performance follow the general SQL standard rules:</p>
+<p><ul>
+<li>Use single case for all SQL verbs;
+<li>Begin all SQL verbs on a new line;
+<li>Separate all words with a single space;
+<li>Right or left aligning verbs within the initial SQL verb.
+</ul></p>
+</body>
+</html>

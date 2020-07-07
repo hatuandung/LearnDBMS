@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL Data Types</h1>
+<p>Data types and ranges for Microsoft Access, MySQL and SQL Server.</p>
+<hr />
+<h2>Microsoft Access Data Types</h2>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Data type</th> 
+    <th>Description</th> 
+    <th>Storage</th>
+  </tr> 
+  <tr> 
+    <td>Text</td> 
+    <td>Use for text or combinations of text and numbers. 255 characters maximum</td> 
+    <td></td> 
+  </tr> 
+  <tr> 
+    <td>Memo</td> 
+    <td>Memo is used for larger amounts of text. Stores up to 65,536 characters.<br /><b>Note:</b> You cannot sort a memo field. However, they are searchable</td> 
+    <td></td> 
+  </tr> 
+  <tr> 
+    <td>Byte</td> 
+    <td>Allows whole numbers from 0 to 255</td> 
+    <td>1 byte</td> 
+  </tr> 
+  <tr> 
+    <td>Integer</td> 
+    <td>Allows whole numbers between -32,768 and 32,767</td> 
+    <td>2 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>Long</td> 
+    <td>Allows whole numbers between -2,147,483,648 and 2,147,483,647</td> 
+    <td>4 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>Single</td> 
+    <td>Single precision floating-point. Will handle most decimals</td> 
+    <td>4 bytes</td> 
+  </tr>
+  <tr> 
+    <td>Double</td> 
+    <td>Double precision floating-point. Will handle most decimals</td> 
+    <td>8 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>Currency</td> 
+    <td>Use for currency. Holds up to 15 digits of whole dollars, plus 4 decimal places.<br /><b>Tip:</b> You can choose which country's currency to use</td> 
+    <td>8 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>AutoNumber</td> 
+    <td>AutoNumber fields automatically give each record its own number, usually starting at 1</td> 
+    <td>4 bytes</td> 
+  </tr>
+  <tr> 
+    <td>Data/Time</td> 
+    <td>Use for dates and times</td> 
+    <td>8 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>Yes/No</td> 
+    <td>A logical field can be displayed as Yes/No, True/False, or On/Off. In code, use the constants True and False (equivalent to -1 and 0). Note: Null values are not allowed in Yes/No fields</td> 
+    <td>1 bit</td> 
+  </tr> 
+  <tr> 
+    <td>Ole Object</td> 
+    <td>Can store pictures, audio, video, or other BLOBs (Binary Large OBjects)</td> 
+    <td>up to 1GB</td> 
+  </tr>
+  <tr> 
+    <td>Hyperlink</td> 
+    <td>Contain links to other files, including web pages</td> 
+    <td></td> 
+  </tr>
+  <tr> 
+    <td>Lookup Wizard</td> 
+    <td>Let you type a list of options, which can then be chosen from a drop-down list</td> 
+    <td>4 bytes</td> 
+  </tr>  
+</table>
+<hr />
+<h2>MySQL Data Types</h2>
+<p>In MySQL there are three main types : text, number, and Date/Time types.</p>
+<b>Text types:</b>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Data type</th> 
+    <th>Description</th> 
+  </tr> 
+  <tr> 
+    <td>CHAR(size)</td> 
+    <td>Holds a fixed length string (can contain letters, numbers, and special characters). The fixed size is specified in parenthesis. Can store up to 255 characters</td> 
+  </tr> 
+  <tr> 
+    <td>VARCHAR(size)</td> 
+    <td>Holds a variable length string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 characters.<br /><b>Note:</b> If you put a greater value than 255 it will be converted to a TEXT type</td> 
+  </tr> 
+  <tr> 
+    <td>TINYTEXT</td> 
+    <td>Holds a string with a maximum length of 255 characters</td> 
+  </tr> 
+  <tr> 
+    <td>TEXT</td> 
+    <td>Holds a string with a maximum length of 65,535 characters</td> 
+  </tr> 
+  <tr> 
+    <td>BLOB</td> 
+    <td>For BLOBs (Binary Large OBjects). Holds up to 65,535 bytes of data</td> 
+  </tr> 
+  <tr> 
+    <td>MEDIUMTEXT</td> 
+    <td>Holds a string with a maximum length of 16,777,215 characters</td> 
+  </tr> 
+  <tr> 
+    <td>MEDIUMBLOB</td> 
+    <td>For BLOBs (Binary Large OBjects). Holds up to 16,777,215 bytes of data</td> 
+  </tr> 
+  <tr> 
+    <td>LONGTEXT</td> 
+    <td>Holds a string with a maximum length of 4,294,967,295 characters</td> 
+  </tr> 
+  <tr> 
+    <td>LONGBLOB</td> 
+    <td>For BLOBs (Binary Large OBjects). Holds up to 4,294,967,295 bytes of data</td> 
+  </tr> 
+  <tr> 
+    <td>ENUM(x,y,z,etc.)</td> 
+    <td>Let you enter a list of possible values. You can list up to 65535 values in an ENUM list. If a value is inserted that is not in the list, a blank value will be inserted.<br />
+<b>Note:</b> The values are sorted in the order you enter them.<br />
+You enter the possible values in this format: ENUM('X','Y','Z')</td> 
+  </tr> 
+  <tr> 
+    <td>SET</td> 
+    <td>Similar to ENUM except that SET may contain up to 64 list items and can store more than one choice</td> 
+  </tr> 
+</table>
+<p><b>Number types:</b></p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Data type</th> 
+    <th>Description</th> 
+  </tr> 
+  <tr> 
+    <td>TINYINT(size)</td> 
+    <td>-128 to 127 normal. 0 to 255 UNSIGNED*. The maximum number of digits may be specified in parenthesis</td> 
+  </tr> 
+  <tr> 
+    <td>SMALLINT(size)</td> 
+    <td>-32768 to 32767 normal. 0 to 65535 UNSIGNED*. The maximum number of digits may be specified in parenthesis</td> 
+  </tr> 
+  <tr> 
+    <td>MEDIUMINT(size)</td> 
+    <td>-8388608 to 8388607 normal. 0 to 16777215 UNSIGNED*. The maximum number of digits may be specified in parenthesis</td> 
+  </tr> 
+  <tr> 
+    <td>INT(size)</td> 
+    <td>-2147483648 to 2147483647 normal. 0 to 4294967295 UNSIGNED*. The maximum number of digits may be specified in parenthesis</td> 
+  </tr> 
+  <tr> 
+    <td>BIGINT(size)</td> 
+    <td>-9223372036854775808 to 9223372036854775807 normal. 0 to 18446744073709551615 UNSIGNED*. The maximum number of digits may be specified in parenthesis</td> 
+  </tr> 
+  <tr> 
+    <td>FLOAT(size,d)</td> 
+    <td>A small number with a floating decimal point. The maximum number of digits may be specified in the size parameter. The maximum number of digits to the right of the decimal point is specified in the d parameter</td> 
+  </tr> 
+  <tr> 
+    <td>DOUBLE(size,d)</td> 
+    <td>A large number with a floating decimal point. The maximum number of digits may be specified in the size parameter. The maximum number of digits to the right of the decimal point is specified in the d parameter</td> 
+  </tr> 
+  <tr> 
+    <td>DECIMAL(size,d)</td> 
+    <td>A DOUBLE stored as a string , allowing for a fixed decimal point. The maximum number of digits may be specified in the size parameter. The maximum number of digits to the right of the decimal point is specified in the d parameter</td> 
+  </tr> 
+</table>
+<p>*The integer types have an extra option called UNSIGNED. Normally, the integer goes from an negative to positive value. Adding the UNSIGNED attribute will move that range up so it starts at zero instead of a negative number.</p>
+<p><b>Date types:</b></p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Data type</th> 
+    <th>Description</th> 
+  </tr> 
+  <tr> 
+    <td>DATE()</td> 
+    <td>A date. Format: YYYY-MM-DD<br />
+<p><b>Note:</b> The supported range is from '1000-01-01' to '9999-12-31'</p></td> 
+  </tr> 
+  <tr> 
+    <td>DATETIME()</td> 
+    <td>*A date and time combination. Format: YYYY-MM-DD HH:MM:SS<br />
+<p><b>Note:</b> The supported range is from '1000-01-01 00:00:00' to '9999-12-31 23:59:59'</p></td> 
+  </tr> 
+  <tr> 
+    <td>TIMESTAMP()</td> 
+    <td>*A timestamp. TIMESTAMP values are stored as the number of seconds since the Unix epoch ('1970-01-01 00:00:00' UTC). Format: YYYY-MM-DD HH:MM:SS<br />
+<p><b>Note:</b> The supported range is from '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' UTC</p></td> 
+  </tr> 
+  <tr> 
+    <td>TIME()</td> 
+    <td>A time. Format: HH:MM:SS<br />
+<p><b>Note:</b> The supported range is from '-838:59:59' to '838:59:59'</p></td> 
+  </tr> 
+  <tr> 
+    <td>YEAR()</td> 
+    <td>A year in two-digit or four-digit format.
+<p><b>Note:</b> Values allowed in four-digit format: 1901 to 2155. Values allowed in two-digit format: 70 to 69, representing years from 1970 to 2069</p></td> 
+  </tr> 
+</table>
+<p>*Even if DATETIME and TIMESTAMP return the same format, they work very differently. In an INSERT or UPDATE query, the TIMESTAMP automatically set itself to the current date and time. TIMESTAMP also accepts various formats, like YYYYMMDDHHMMSS, YYMMDDHHMMSS, YYYYMMDD, or YYMMDD.</p>
+<hr />
+<h2>SQL Server Data Types</h2>
+<p><b>Character strings:</b></p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Data type</th> 
+    <th>Description</th> 
+    <th>Storage</th> 
+  </tr> 
+  <tr> 
+    <td>char(n)</td> 
+    <td>Fixed-length character string. Maximum 8,000 characters</td> 
+    <td>n</td> 
+  </tr> 
+  <tr> 
+    <td>varchar(n)</td> 
+    <td>Variable-length character string. Maximum 8,000 characters</td> 
+    <td></td> 
+  </tr>
+  <tr> 
+    <td>varchar(max)</td> 
+    <td>Variable-length character string. Maximum 1,073,741,824 characters</td> 
+    <td></td> 
+  </tr>
+  <tr> 
+    <td>text</td> 
+    <td>Variable-length character string. Maximum 2GB of text data</td> 
+    <td></td> 
+  </tr>
+</table>
+<p><b>Unicode strings:</b></p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Data type</th> 
+    <th>Description</th> 
+    <th>Storage</th> 
+  </tr> 
+  <tr> 
+    <td>nchar(n)</td> 
+    <td>Fixed-length Unicode data. Maximum 4,000 characters</td> 
+    <td></td> 
+  </tr> 
+  <tr> 
+    <td>nvarchar(n)</td> 
+    <td>Variable-length Unicode data. Maximum 4,000 characters</td> 
+    <td></td> 
+  </tr>
+  <tr> 
+    <td>nvarchar(max)</td> 
+    <td>Variable-length Unicode data. Maximum 536,870,912 characters</td> 
+    <td></td> 
+  </tr>
+  <tr> 
+    <td>ntext</td> 
+    <td>Variable-length Unicode data. Maximum 2GB of text data</td> 
+    <td></td> 
+  </tr>
+</table>
+<p><b>Binary types:</b></p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Data type</th> 
+    <th>Description</th> 
+    <th>Storage</th> 
+  </tr> 
+  <tr> 
+    <td>bit</td> 
+    <td>Allows 0, 1, or NULL</td> 
+    <td></td> 
+  </tr> 
+  <tr> 
+    <td>binary(n)</td> 
+    <td>Fixed-length binary data. Maximum 8,000 bytes</td> 
+    <td></td> 
+  </tr>
+  <tr> 
+    <td>varbinary(n)</td> 
+    <td>Variable-length binary data. Maximum 8,000 bytes</td> 
+    <td></td> 
+  </tr>
+  <tr> 
+    <td>varbinary(max)</td> 
+    <td>Variable-length binary data. Maximum 2GB</td> 
+    <td></td> 
+  </tr>
+  <tr> 
+    <td>image</td> 
+    <td>Variable-length binary data. Maximum 2GB</td> 
+    <td></td> 
+  </tr>
+</table>
+<p><b>Number types:</b></p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Data type</th> 
+    <th>Description</th> 
+    <th>Storage</th> 
+  </tr> 
+  <tr> 
+    <td>tinyint</td> 
+    <td>Allows whole numbers from 0 to 255</td> 
+    <td>1 byte</td> 
+  </tr> 
+  <tr> 
+    <td>smallint</td> 
+    <td>Allows whole numbers between -32,768 and 32,767</td> 
+    <td>2 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>int</td> 
+    <td>Allows whole numbers between -2,147,483,648 and 2,147,483,647 </td> 
+    <td>4 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>bigint</td> 
+    <td>Allows whole numbers between <span style="font-size:9pt">-9,223,372,036,854,775,808</span> and <span style="font-size:9pt">9,223,372,036,854,775,807</span></td> 
+    <td>8 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>decimal(p,s)</td> 
+    <td><p>Fixed precision and scale numbers.</p>
+<p>Allows numbers from -10^38 +1 to 10^38 –1.</p>
+<p>The p parameter indicates the maximum total number of digits that can be stored (both to the left and to the right of the decimal point). p must be a value from 1 to 38. Default is 18.</p>
+<p>The s parameter indicates the maximum number of digits stored to the right of the decimal point. s must be a value from 0 to p. Default value is 0</p></td> 
+    <td>5-17 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>numeric(p,s)</td> 
+    <td><p>Fixed precision and scale numbers.</p>
+<p>Allows numbers from -10^38 +1 to 10^38 –1.</p>
+<p>The p parameter indicates the maximum total number of digits that can be stored (both to the left and to the right of the decimal point). p must be a value from 1 to 38. Default is 18.</p>
+<p>The s parameter indicates the maximum number of digits stored to the right of the decimal point. s must be a value from 0 to p. Default value is 0</p></td> 
+    <td>5-17 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>smallmoney</td> 
+    <td>Monetary data from -214,748.3648 to 214,748.3647</td> 
+    <td>4 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>money</td> 
+    <td>Monetary data from <span style="font-size:9pt">-922,337,203,685,477.5808</span> to <span style="font-size:9pt">-922,337,203,685,477.5807</span></td> 
+    <td>8 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>float(n)</td> 
+    <td><p>Floating precision number data from -1.79E + 308 to 1.79E + 308.</p>
+<p>The n parameter indicates whether the field should hold 4 or 8 bytes. float(24) holds a 4-byte field and float(53) holds an 8-byte field. Default value of n is 53.</p></td> 
+    <td>4 or 8 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>real</td> 
+    <td>Floating precision number data from -3.40E + 38 to 3.40E + 38</td> 
+    <td>4 bytes</td> 
+  </tr> 
+</table>
+<p><b>Date types:</b></p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Data type</th> 
+    <th>Description</th> 
+    <th>Storage</th> 
+  </tr> 
+  <tr> 
+    <td>datetime</td> 
+    <td>From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 milliseconds</td> 
+    <td>8 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>datetime2</td> 
+    <td>From January 1, 0001 to December 31, 9999 with an accuracy of 100 nanoseconds</td> 
+    <td>6-8 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>smalldatetime</td> 
+    <td>From January 1, 1900 to June 6, 2079 with an accuracy of 1 minute</td> 
+    <td>4 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>date</td> 
+    <td>Store a date only. From January 1, 0001 to December 31, 9999</td> 
+    <td>3 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>time</td> 
+    <td>Store a time only to an accuracy of 100 nanoseconds</td> 
+    <td>3-5 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>datetimeofset</td> 
+    <td>The same as datetime2 with the addition of a time zone offset</td> 
+    <td>8-10 bytes</td> 
+  </tr> 
+  <tr> 
+    <td>temestamp</td> 
+    <td>Stores a unique number that gets updated every time a row gets created or modified. The timestamp value is based upon an internal clock and does not correspond to real time. Each table may have only one timestamp variable</td> 
+    <td></td> 
+  </tr> 
+</table>
+<p><b>Other data types:</b></p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Data type</th> 
+    <th>Description</th>  
+  </tr> 
+  <tr> 
+    <td>sql_variant</td> 
+    <td>Stores up to 8,000 bytes of data of various data types, except text, ntext, and timestamp</td>  
+  </tr> 
+  <tr> 
+    <td>uniqueidentifier</td> 
+    <td>Stores a globally unique identifier (GUID)</td> 
+  </tr> 
+  <tr> 
+    <td>xml</td> 
+    <td>Stores XML formatted data. Maximum 2GB</td> 
+  </tr> 
+  <tr> 
+    <td>cursor</td> 
+    <td>Stores a reference to a cursor used for database operations</td>  
+  </tr> 
+  <tr> 
+    <td>table</td> 
+    <td>Stores a result-set for later processing</td>  
+  </tr>  
+</table>
+</body>
+</html>

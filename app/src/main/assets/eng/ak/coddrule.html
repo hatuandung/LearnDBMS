@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+
+<div class="container">
+<div class="row">
+
+
+
+
+<div class="span9">
+<div id="body-content">
+
+
+<h3>Codd's Rule</h3>
+<p>
+E.F Codd was a Computer Scientist who invented <b>Relational model</b> for Database management. Based on relational model, <b>Relation database</b> was created. Codd proposed 13 rules popularly known as <b>Codd's 12 rules</b> to test DBMS's concept against his relational model. Codd's rule actualy define what quality a DBMS requires in order to become a Relational Database Management System(RDBMS). Till now, there is hardly any commercial product that follows all the 13 Codd's rules. Even <b>Oracle</b> follows only eight and half out(8.5) of 13. The Codd's 12 rules are as follows.</p>
+<hr>
+<h4>Rule zero</h4>
+<p>This rule states that for a system to qualify as an <b>RDBMS</b>, it must be able to manage database entirely through the relational capabilities.</p>
+<hr>
+<h4>Rule 1 : Information rule</h4>
+<p>
+All information(including metadata) is to be represented as stored data in cells of tables. The rows and columns have to be strictly unordered.
+</p>
+<hr>
+<h4>Rule 2 : Guaranted Access</h4>
+<p>
+Each unique piece of data(atomic value) should be accesible by : <b>Table Name + primary key(Row) + Attribute(column)</b>. </p>
+<p><b>NOTE : </b> Ability to directly access via POINTER is a violation of this rule.
+</p>
+<hr>
+<h4>Rule 3 : Systemetic treatment of NULL</h4>
+<p><b>Null</b> has several meanings, it can mean missing data, not applicable or no value. It should be handled consistently. Primary key must not be null. Expression on <b>NULL</b> must give null.</p>
+<hr>
+<h4>Rule 4 : Active Online Catalog</h4>
+<p>
+Database dictionary(catalog) must have description of <b>Database</b>. Catalog to be governed by same rule as rest of the database. The same query language to be used on catalog as on application database. 
+</p>
+<hr>
+<h4>Rule 5 : Powerful language</h4>
+<p>One well defined language must be there to provide all manners of access to data. Example: <b>SQL</b>. If a file supporting table can be accessed by any manner except SQL interface, then its a violation to this rule.</p>
+<hr>
+<h4>Rule 6 : View Updation rule</h4>
+<p>All view that are theoretically updatable should be updatable by the system.</p>
+
+<hr>
+<h4>Rule 7 : Relational Level Operation</h4>
+<p>There must be Insert, Delete, Update operations at each level of relations. Set operation like Union, Intersection and minus should also be supported.</p>
+<hr>
+<h4>Rule 8 : Physical Data Independence</h4>
+<p>
+The physical storage of data should not matter to the system. If say, some file supporting table were renamed or moved from one disk to another, it should not effect the application. 
+</p>
+<hr>
+<h4>Rule 9 : Logical Data Independence</h4>
+<p>
+If there is change in the logical structure(table structures) of the database the user view of data should not change. Say, if a table is split into two tables, a new view should give result as the join of the two tables. This rule is most difficult to satisfy.
+</p>
+<hr>
+<h4>Rule 10 : Integrity Independence</h4>
+<p>
+The database should be able to conforce its own integrity rather than using other programs. Key and Check constraints, trigger etc should be stored in Data Dictionary. This also make <b>RDBMS</b> independent of front-end. 
+</p>
+<hr>
+<h4>Rule 11 : Distribution Independence</h4>
+<p>
+A database should work properly regardless of its distribution across a network. This lays foundation of distributed database. 
+</p>
+<hr>
+<h4>Rule 12 : Nonsubversion rule</h4>
+<p>
+If low level access is allowed to a system it should not be able to subvert or bypass integrity rule to change data. This can be achieved by some sort of looking or encryption.
+</p>
+<hr>
+
+</div>
+</div>
+</div>
+</div> 

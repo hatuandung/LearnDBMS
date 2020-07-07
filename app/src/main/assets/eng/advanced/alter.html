@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL ALTER TABLE Statement</h1>
+<hr />
+<h2>The ALTER TABLE Statement</h2>
+<p>The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.</p>
+<h3>SQL ALTER TABLE Syntax</h3>
+<p>To add a column in a table, use the following syntax:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE table_name<br />ADD column_name datatype</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>To delete a column in a table, use the following syntax (notice that some database systems don't allow deleting a column):</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE table_name<br />DROP COLUMN column_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>To change the data type of a column in a table, use the following syntax:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE table_name<br />ALTER COLUMN column_name datatype</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL ALTER TABLE Example</h2>
+<p>Look at the "Persons" table::</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>City</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+  </tr> 
+</table>
+<p>Now we want to add a column named "DateOfBirth" in the "Persons" table.</p>
+<p>We use the following SQL statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />ADD DateOfBirth date</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>Notice that the new column, "DateOfBirth", is of type date and is going to hold a date. The data type specifies what type of data the column can hold. For a complete reference of all the data types available in MS Access, MySQL, and SQL Server, go to <a href="file:///android_asset/rus/advanced/data_types.html">Data Types reference</a>.</p>
+<p>The "Persons" table will now like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>DateOfBirth</th>
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td> </td>
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td> </td>
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td> </td>
+  </tr> 
+</table>
+<hr />
+<h2>Change Data Type Example</h2>
+<p>Now we want to change the data type of the column named "DateOfBirth" in the "Persons" table.</p>
+<p>We use the following SQL statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />DROP COLUMN DateOfBirth</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The "Persons" table will now like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+  </tr> 
+</table>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL CREATE TABLE Statement</h1>
+<p>Database table is a two-dimensional array of rows and columns. You can create a table using CREATE TABLE command.</p>
+<hr />
+<h2>The SQL CREATE TABLE Statement</h2>
+<p>The CREATE TABLE statement is used to create a table in a database. You should specify the name and data type of each column.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td><h3>SQL CREATE TABLE Syntax</h3>
+      <table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>CREATE TABLE table_name<br />
+            (<br />
+            column_name1 data_type,<br />
+            column_name2 data_type,<br />
+            column_name3 data_type,<br />
+            ....<br />
+            )</td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<p>The <i>data_type</i> parameter specifies what type of data the column can hold. For a complete reference of all the data types available in MS Access, MySQL, and SQL Server, go to complete <a href="file:///android_asset/rus/advanced/data_types.html">Data Types reference</a>.</p>
+<hr />
+<h2>CREATE TABLE Example</h2>
+<p>Now we want to create a table called "Persons" that contains five columns: P_Id, LastName, FirstName, Address, and City.</p>
+<p>We use the following CREATE TABLE statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td><table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>CREATE TABLE Persons<br />
+            (<br />
+            P_Id int,<br />
+            LastName varchar(255),<br />
+            FirstName varchar(255),<br />
+            Address varchar(255),<br />
+            City varchar(255)<br />
+            )</td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<p>The P_Id column is of type int and will hold a number. The LastName, FirstName, Address, and City columns are of type varchar with a maximum length of 255 characters.</p>
+<p>The empty "Persons" table will now look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <th>P_Id</th>
+    <th>LastName</th>
+    <th>FirstName</th>
+    <th>Address</th>
+    <th>City</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<p>The empty table can be filled with data with <a href="file:///android_asset/rus/basics/insert.html">the INSERT INTO statement</a>.</p>
+</body>
+</html>

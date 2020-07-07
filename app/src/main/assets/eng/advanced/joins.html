@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL Joins</h1>
+<p>SQL joins are used to query data from two or more tables, based on a relationship between certain columns in these tables.</p>
+<hr />
+<h2>SQL JOIN</h2>
+<p>The JOIN keyword is used in an SQL statement to query data from two or more tables, based on a relationship between certain columns in these tables.</p>
+<p>Tables in a database are often related to each other with keys.</p>
+<p>A primary key is a column (or a combination of columns) with a unique value for each row. Each primary key value must be unique within the table. The purpose is to bind data together, across tables, without repeating all of the data in every table.</p>
+<p>Look at the "Persons" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+</table>
+<p>Note that the "P_Id" column is the primary key in the "Persons" table. This means that no two rows can have the same P_Id. The P_Id distinguishes two persons even if they have the same name.</p>
+<p>Next, we have the "Orders" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>O_Id</th> 
+    <th>Order_No</th> 
+    <th>P_Id</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>77895</td> 
+    <td>3</td> 
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>44678</td> 
+    <td>3</td> 
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>22456</td> 
+    <td>1</td> 
+  </tr> 
+  <tr> 
+    <td>4</td> 
+    <td>24562</td> 
+    <td>1</td> 
+  </tr> 
+  <tr> 
+    <td>5</td> 
+    <td>34764</td> 
+    <td>12</td> 
+  </tr> 
+</table>
+<p>Note that the "O_Id" column is the primary key in the "Orders" table and that the "P_Id" column refers to the persons in the "Persons" table without using their names.</p>
+<p>Notice that the relationship between the two tables above is the "P_Id" column.</p>
+<hr />
+<h2>Different SQL JOINs</h2>
+<p>Before we continue with examples, we will list the types of JOIN you can use, and the differences between them.</p>
+<ul>
+  <li>JOIN: Return rows when there is at least one match in both tables
+  <li>LEFT JOIN: Return all rows from the left table, even if there are no matches in the right table
+  <li>RIGHT JOIN: Return all rows from the right table, even if there are no matches in the left table
+  <li>FULL JOIN: Return rows when there is a match in one of the tables
+</ul>
+</body>
+</html>

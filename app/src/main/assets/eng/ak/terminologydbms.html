@@ -1,0 +1,278 @@
+<p><img alt="" width="100%" src="terminologydbms.png" /></p>
+
+<p>&nbsp;</p>
+
+<p><strong>ACID</strong> &ndash; The acronym standing for the properties maintained by standard database management systems, standing for Atomicity, Consistency, Isolation, and Durability.</p>
+
+<p><strong>Application Server</strong> &ndash; An application server that processes application-specific database operations made from application client programs. The DBMS is in-process with the application code for very fast internal access.</p>
+
+<p><strong>Atomicity</strong> &ndash; The property of a transaction that guarantees that either all or none of the changes made by the transaction are written to the database.</p>
+
+<p><strong>BLOB</strong>&nbsp;&ndash; An abbreviation for Binary Large OBject. In SQL BLOB&nbsp;can be a general term for any data of type <em>long varbinary</em>, <em>long varchar</em>, or <em>long wvarchar</em>. It is also a specific term (and synonym) for data of type <em>long varbinary</em>.</p>
+
+<p><strong>B-tree</strong> &ndash; An indexing method in which the values of the columns used in the index are efficiently maintained in sorted order that also provides fast access (three or four additional disk accesses) to an individual index entry. See Wikipedia</p>
+
+<p><strong>Cache</strong> &ndash; The computer memory that is set aside to contain a portion of the database data that has most recently been accessed by the database application program. A cache is used to minimize the amount of physical disk I/O performed by the DBMS.</p>
+
+<p><strong>Cascade</strong> &ndash; A foreign key attribute that automatically migrates the changes made to a referenced (i.e., primary key) table to all of the referencing (foreign key) table rows.</p>
+
+<p><strong>Catalog</strong> &ndash; A repository for the computer-readable form of a database&rsquo;s data definition meta-data. Sometimes called the system catalog or just syscat.</p>
+
+<p><strong>Client</strong> &ndash; A client-side process, containing proxy functions, connecting to a server process that contains the actual database functions.</p>
+
+<p><strong>Client/Server</strong> &ndash; A server is a program that runs on a computer in which directly manages the database. A client is a separate program (or process) that communicates with the database server through some kind of Remote Procedure Call (RPC)&nbsp;in order to perform application-specific database operations.</p>
+
+<p><strong>Cloud</strong>&nbsp;&ndash; A&nbsp;recently coined term used to describe an execution model for computing systems where functions and data are invoked by a name that refers to a remote system for which its location is irrelevant (hence the concept if it being &ldquo;out there somewhere&rdquo; like a cloud). Cloud-based systems allow thin-client interfaces to access this functionality through internet, and frequently with wi-fi, reducing the power requirements of the client computers.</p>
+
+<p><strong>Column</strong> &ndash; A single unit of named data that has a particular data type (e.g., number, text, or date). Columns only exist in tables.</p>
+
+<p><strong>Commit</strong> &ndash; The action that causes the all of the changes made by a particular transaction to be reliably written to the database files and made visible to other users.</p>
+
+<p><strong>Concurrency</strong> &ndash; The property in which two or more computing processes are executing at the same time.</p>
+
+<p><strong>Connection</strong> &ndash; The means of communication between a client and a server. A&nbsp;process may&nbsp;have multiple connections opened, each in its own thread, to one or more databases at a time.</p>
+
+<p><strong>Consistency</strong> &ndash; The property of a transaction that guarantees that the state of the database both before and after execution of the transaction remains consistent (i.e., free of any data integrity errors) whether or not the transaction commits or is rolled back.</p>
+
+<p><strong>Core/Core-level</strong> &ndash; A lower-level set of database primitives in the form of a complete API, used by database processors such as SQL or Cursors.</p>
+
+<p><strong>Cost-based Optimization</strong> &ndash; The process where data distribution statistics (e.g., the number of rows in a table) are used to guide the SQL query optimizer&rsquo;s choice of the best way to retrieve the needed data from the database.</p>
+
+<p><strong>Cursor</strong> &ndash; A collection of rows grouped by a common criteria (key sequence, set membership, SELECT result set) which can be navigated and updated.</p>
+
+<p><strong>Data Type</strong> &ndash; The basic kind of data that can be stored in a column. The data types that are available in RDM SQL are: <em>char</em>, <em>wchar</em>, <em>varchar</em>, <em>wvarchar</em>, <em>binary</em>, <em>varbinary</em>, <em>boolean</em>, <em>tinyint</em>, <em>smallint</em>, <em>integer</em>, <em>bigint</em>, <em>real</em>, <em>float</em>, <em>double</em>, <em>date</em>, <em>time</em>, <em>timestamp</em>, <em>long varbinary</em>, <em>long varchar</em>, and &nbsp;<em>long wvarchar</em>.</p>
+
+<p><strong>Database Instance</strong> &ndash; An independent database which shares the same schema as another database. Only used in RDM Server.</p>
+
+<p><strong>db_VISTA</strong> &ndash; Original name from 1984 for the Raima DBMS product now called RDM.</p>
+
+<p><strong>DBMS</strong> &ndash; An acronym for DataBase Management System.</p>
+
+<p><strong>DDL</strong> &ndash; Database Definition Language.</p>
+
+<p><strong>Deadlock</strong> &ndash; A situation in which resources (i.e. locks) are held by two or more connections that are each needed by the other connections so that they are stuck in an infinite wait loop. For example, connection 1 has a lock on table1 and is requesting a lock on table2 that is currently held by connection 2 which is also requesting a lock on table1. There are programming practices that can be used that will prevent deadlocks from ever occurring.</p>
+
+<p><strong>Deterministic</strong> &ndash; An attribute of a section of code whereby the limit on the time required to execute the code is known, or&nbsp;<em>determined</em>, ahead of time. This is commonly associated with real-time software.</p>
+
+<p><strong>Distributed Database</strong> &ndash; A database in which its data is distributed among multiple computers or devices (nodes) allowing multiple computers to simultaneously access data residing on separate nodes. The Internet of Things (IoT) is frequently considered a vast grid of data collection devices, requiring distributed database functionality to manage.</p>
+
+<p><strong>DLL</strong> &ndash; Dynamic Link Library&mdash;a library of related functions that are not loaded into memory until they are called by the application program. All RDM APIs are contained in DLLs on those operating systems that support them (e.g., MS-Windows). These are sometimes called shared libraries on some systems.</p>
+
+<p><strong>DML</strong> &ndash; Database Manipulation Language. In SQL, such statements as UPDATE, INSERT and DELETE are considered DML.</p>
+
+<p><strong>Documentation</strong> &ndash; All Product-related materials, specifications, technical manuals, user manuals, flow diagrams, file descriptions, or other written information either received from or published. Raima&rsquo;s documentation is online.</p>
+
+<p><strong>Domain</strong> &ndash; An alternate name for a base data type that is defined using the RDM SQL create domain statement.</p>
+
+<p><strong>Durability</strong> &ndash; The property of a transaction in which the DBMS guarantees that all committed transactions will survive any kind of system failure.</p>
+
+<p><strong>Dynamic DDL</strong> &ndash; The ability to change the definition of a database (its schema) after data has been stored in the database without having to take the database off-line or restructure its files.</p>
+
+<p><strong>Encryption</strong> &ndash; The encoding of data so that it cannot be understood by a human reader. This usually requires the use of an encryption key. A common encryption algorithm is called AES, which uses encryption keys of 128, 192 or 256 bits.  </p>
+
+<p><strong>End-User</strong> &ndash; An entity that licenses an Application for its own use from Licensee or its Additional Reseller.</p>
+
+<p><strong>Foreign Key</strong> &ndash; One or more columns in a table intended to contain only values that match the related primary/unique key column(s) in the referenced table. Foreign and primary keys explicitly define the direct relationships between tables. Referential Integrity is maintained when every foreign key refers to one and only one existing primary key.</p>
+
+<p><strong>Grouped Lock Request</strong> &ndash; A single operation that requests locks on more than one table or rows at a time. Either all or none of the requested locks will be granted. Issuing a grouped lock request at the beginning of a transaction that includes all of the tables/rows that can potentially be accessed by the transaction guarantees that a deadlock will not occur.</p>
+
+<p><strong>GUI</strong> &ndash; Graphical User Interface.</p>
+
+<p><strong>Handle</strong> &ndash; A software identification variable that is used to identify and manage the context associated with a particular computing process or thread. For example, SQL uses handles for each user connection (connection handle) and SQL statement (statement handle) among other things.</p>
+
+<p><strong>Hash</strong> &ndash; An indexing method that provides for a fast retrieval (usually in only one additional disk access) of the row that has a matching column value.   </p>
+
+<p><strong>Hierarchical Model</strong> &ndash; A special case of a network model database in which each record type can only participate as the member of one set.</p>
+
+<p><strong>Hot Spot</strong> &ndash; In a database, a hot spot is a single shared row of a table that is used and updated so often that it creates a performance bottleneck on the system.</p>
+
+<p><strong>I/O</strong> &ndash; Input/output. For a DBMS, this is normally a disk drive, used to create database durability.</p>
+
+<p><strong>IEC</strong> &ndash; International Electrotechnical Commission. Along with the ISO, the IEC controls the SQL standard (ISO/IEC 9075) and many others as well.</p>
+
+<p><strong>Implicit Locking</strong> &ndash; Done by SQL to automatically apply the locks needed to safely execute an SQL statement in a multiuser (i.e., shared database) operational environment.</p>
+
+<p><strong>Index</strong> &ndash; A separate structure&nbsp;that allows fast access to a table&rsquo;s rows based on the data values of the columns used in the index. RDM supports two indexing types: hash and b-tree. A SQL key (not foreign key) is implemented using an index.</p>
+
+<p><strong>In-memory (Inmemory)</strong> &ndash; A feature in which the DBMS keeps the entire contents of a database or table available in computer memory at all times while the database is opened. Frequently, in-memory databases are volatile, meaning that they have little or no durability if the computer malfunctions. Durability issues are frequently prioritized below&nbsp;performance, which increases substantially with memory as the storage media.</p>
+
+<p><strong>In-process</strong> &ndash; When referring to a DBMS, it is in-process when the DBMS code resides in the process space of the application program that is using it. If the process is single threaded, then this is a single-user usage of the database(s). A process may have multiple threads with individual connections to a shared database, making it a multi-user database. In-process uses Local Procedure Calls (LPC) vs Remote Procedure Calls (RPC) to a database server in a separate process.</p>
+
+<p><strong>Inner Join</strong> &ndash; A join between two tables where only the rows with matching foreign and primary key values are returned.</p>
+
+<p><strong>Internet of Things</strong> &ndash; A recently coined phrase describing the extended reach of connected devices. In particular, devices that use computing power to control or sense its environment and use wifi or wires to connect to internet.</p>
+
+<p><strong>IP Address</strong> &ndash; A numerical identification tag assigned to a computing device in a network. Originally, internet IP addresses consisted of 32 bits of data,&nbsp;displayed as a set of four, 3-digit numbers separated by periods (e.g., 113.12.214.2). The number of available IP addresses is running out and a new standard, called IPv6 with 128 bits will expand the address space for the foreseeable future.</p>
+
+<p><strong>ISO</strong> &ndash; International Organization for Standardization. Along with the IEC, the ISO controls the SQL standard (ISO/IEC 9075) and many others as well.</p>
+
+<p><strong>Isolation</strong> &ndash; The property of a transaction that guarantees that the changes made by a transaction are isolated from the rest of the system until after the transaction has committed.</p>
+
+<p><strong>Java</strong> &ndash; A multi-platform, object-oriented programming language, similar to C++, which is freely available to any and all software developers. It is particularly important in the development of Internet/Web and mobile applications.</p>
+
+<p><strong>JDBC</strong> &ndash; Java Database Connectivity API. JDBC provides a standard database access and manipulations API for Java programs. RDM supports JDBC.</p>
+
+<p><strong>Join</strong> &ndash; An operation in which the rows of one table are related to the rows of another through common column values.</p>
+
+<p><strong>JSON</strong>&nbsp;&ndash; A&nbsp;data representation offered as a more compact but still humanly readable alternative to XML. JSON is the acronym for JavaScript Object Notation, and is frequently utilized in web/cloud based applications.</p>
+
+<p><strong>Key</strong> &ndash; A column or columns on which an index is constructed to allow rapid and/or sorted access to a table&rsquo;s row.</p>
+
+<p><strong>LAN</strong> &ndash; A Local Area Network is&nbsp;used to interconnect the computers in a single geographic location. Contrasted to Wide Area Networks (WAN). Bandwidth (speed) is a primary difference between local and wide-area networking.</p>
+
+<p><strong>Library</strong> &ndash; The container for a set of common software API functions. Frequently a library is contained in a DLL or Shared Library.</p>
+
+<p><strong>Licensee</strong> &ndash; A customer that has obtained the right to use and/-or distribute Raima Product(s).</p>
+
+<p><strong>Local Procedure Call</strong>&nbsp;&ndash; A software function call to a library function that exists in-process (same computer, same process space). This is in contrast to Remote Procedure Calls (RPC) which are to functions that reside&nbsp;a different process, whether they are the same computer (using interprocess communication) or a remote computer (using networking). Local procedure calls are significantly faster than remote procedure calls, but require computing resources on the local (client) computer.</p>
+
+<p><strong>Locking</strong> &ndash; A method for safely protecting objects&nbsp;from being changed by two or more users (processes/threads) at the same time. A write (exclusive) lock allows access from&nbsp;only one user (process/thread) at a time. A read (shared) lock allows read-only access from&nbsp;multiple users (processes/threads).</p>
+
+<p><strong>Maintenance and Support</strong> &ndash; The maintenance and support services for a Product under an Agreement (Maintenance and Support Addendum).</p>
+
+<p><strong>Marks</strong> &ndash; Trademarks, trade names, service marks or logos identified on a company&rsquo;s&nbsp;website and/or printed material.</p>
+
+<p><strong>Meta-data</strong> &ndash; &ldquo;Data about data.&rdquo; In a DBMS context, data stored in columns of a table have certain attributes to them such as the&nbsp;<em>type</em>,&nbsp;<em>length</em>,&nbsp;<em>description</em> or other characteristics that allow the DBMS to process the data meaningfully, or the users to understand it better.</p>
+
+<p><strong>Mirroring</strong> &ndash; The ability to copy the changes to the database made by each transaction from the master database to one or more slave databases so that exact copies of the master database are always available on the slaves.</p>
+
+<p><strong>Modification Stored Procedure</strong> &ndash; An SQL stored procedure that contains one or more INSERT, UPDATE, and/or DELETE&nbsp;statements.</p>
+
+<p><strong>Multi-platform</strong> &ndash; The ability for a software system to run on different computer hardware and operating systems with little or no changes.</p>
+
+<p><strong>Natural Join</strong> &ndash; A join formed between two tables where the values of identically <em>named</em> and <em>defined</em> columns are equal.</p>
+
+<p><strong>Network Model</strong> &ndash; A database in which inter-record type relationships are organized using one-to-many sets. This differs from a Hierarchical Model in that it allows a record type to&nbsp;be a member of more than one set. Individual rows can be retrieved using API functions that allow an application to navigate through individual set instances.</p>
+
+<p><strong>Network</strong> &ndash; An inter-connection of computers and computing devices all of which can send and receive messages from one another. The world&rsquo;s largest network is the Internet in which billions of computers are connected.</p>
+
+<p><strong>NoSQL</strong>&nbsp;&ndash;&nbsp;A classification of data storage systems which are not primarily designed to be relationally accessed through the common SQL language. NoSQL systems are characterized by dynamic creation and deletion of key/value pairs, and are structured to be highly scalable to multiple computers.</p>
+
+<p><strong>Object-oriented</strong> &ndash; A computing programming paradigm which defines the computing problem to be solved as a set of objects which are members of various object classes each with its own set of data manipulation methods. Individual objects which have been instantiated (created) can only be manipulated using those prescribed methods.</p>
+
+<p><strong>Open Source Software (OSS)</strong> &ndash; Software that is released under a Software License that (1) permits each recipient of the software to copy and modify the software; (2) permits each recipient to distribute the software in modified or unmodified form; and (3) does not require recipients to pay a fee or royalty for the permission to copy, modify, or distribute the software.</p>
+
+<p><strong>Optimizer</strong> &ndash; A component of the SQL system that estimates the optimum, (i.e., fastest) method to access the database data that requested is by particular SQL SELECT, UPDATE, or DELETE&nbsp;statement.</p>
+
+<p><strong>Outer Join</strong> &ndash; A join formed between two tables that in addition to including the rows from the two tables with matching join column values will also include the values from one table that do not have matching rows in the other.</p>
+
+<p><strong>Page Size</strong> &ndash; The size in bytes of a database page.</p>
+
+<p><strong>Page</strong> &ndash; The basic unit of database file input/output. Database files may b&nbsp;organized into a set of fixed-sized pages containing data associated with one or more record occurrences (table rows).</p>
+
+<p><strong>Party</strong> &ndash; A party to an Agreement (between Raima and Customer)</p>
+
+<p><strong>PLC</strong> &ndash; Programmable Logic Controller.</p>
+
+<p><strong>Port</strong> &ndash; A network portal through which two computing processes can communicate. Where one IP Address typically identifies a device, a Port on that device identifies one of multiple potential communication channels.</p>
+
+<p><strong>Portable</strong> &ndash; Software which has been developed to be able to run on many different computer hardware and operating systems with little or no change.</p>
+
+<p><strong>Positioned Update/Delete</strong> &ndash; An SQL UPDATE&nbsp;or DELETE&nbsp;statement that modifies the current row of a cursor.</p>
+
+<p><strong>Primary Key</strong> &ndash; A column or group of columns in a given table that uniquely identify each row of the table. The primary key is used in conjunction with a foreign key in another (or even the same) table to related the two tables together. For example, the primary key in an author table would match the foreign key in a book table in order to relate a particular author to that author&rsquo;s books.</p>
+
+<p><strong>Process</strong> &ndash; An instance of the execution of a program on a single computer. A process can consist of one or more threads executing, more or less, concurrently. The private memory used by a process cannot be accessed by any other process.</p>
+
+<p><strong>Product</strong> &ndash; The Raima software product(s) licensed to Licensee under an Agreement, including all bug fixes, upgrades, Updates, and releases. Product(s) does not include any Third Party Software or any OSS that may be included and distributed with the Product(s).</p>
+
+<p><strong>Protocol</strong> &ndash; A specific method in which messages are formulated, formatted, and passed between computers in a network. Internet messages are passed between computers using the TCP/IP protocol.</p>
+
+<p><strong>Query</strong> &ndash; A complete SELECT&nbsp;statement that specifies 1) the columns and tables from which data is to be retrieved, 2) optionally, conditions that the data must satisfy, 3) optionally, computations that are to be performed on the retrieved column values, and 4) optionally, a desired ordering of the result set.</p>
+
+<p><strong>RDM</strong> &ndash; Raima Database Manager. Formerly called RDM Embedded.</p>
+
+<p><strong>RDM Server</strong> &ndash; Raima&rsquo;s&nbsp;client/server DBMS originally released on 1993, named RDS (Raima Database Server), Velocis, and finally RDM Server. Still supported for existing customers.</p>
+
+<p><strong>Read-only Transaction</strong> &ndash; A Multi-Version Concurrency Control (MVCC) feature that allows database data to be read by one process without blocking another process&rsquo;s modification of that same data.&nbsp;Frequently referred to as a &ldquo;snapshot.&rdquo;</p>
+
+<p><strong>Real-time</strong> &ndash; A real-time environment is one in which specific tasks must be guaranteed to execute within a specified time interval. For a DBMS to be considered truly real-time, it must be able to perform specific database-related tasks in a time that can be deterministically demonstrated&mdash;i.e., the worst case execution time can be demonstrated. Because a general-purpose DBMS deals with dynamic data in which the sizes of tables vary over time and since DBMS response times depend on the amount of data to be processed they cannot be considered as real-time. This is true also for RDM. It is real-time friendly, because it is fast, has a small footprint and has features (such as virtual tables and in-memory storage) that allow it to be used in beneficial ways in a real-time application.</p>
+
+<p><strong>Record Instance/Occurrence</strong> &ndash; One set of related data field values associated with a specific record type&mdash;equivalent to an SQL row.</p>
+
+<p><strong>Record Type</strong> &ndash; A collection of closely related data fields&mdash;equivalent to an SQL table. Similar to a C struct, a record type is defined by a set of closely related data fields.</p>
+
+<p><strong>Referential Integrity</strong> &ndash; A condition in which the foreign key column values in all of the rows in one table have matching rows in the referenced primary key table. Referential integrity is maintained by SQL during the processing of an INSERT&nbsp;and DELETE&nbsp;statement and any UPDATE&nbsp;statement that modifies a foreign or primary key value.</p>
+
+<p><strong>Relational Model</strong> &ndash; A database in which inter-table relationships are primarily organized through&nbsp;common data columns which define a one-to-many relationship between a row of the primary key table and one or more rows of the matching foreign key table. Equi-joins relate tables that have matching primary/foreign key values, but other comparisons (relationships) may be defined. Besides describing how the database tables are related, the relational model also defines how the related data can be accessed and manipulated. SQL is the most commonly used relational model database language.   </p>
+
+<p><strong>Remote Procedure Call</strong>&nbsp;&ndash; A method of interprocess communication where a function residing within another process is called as though it is a local (in-process) function. The method is implemented through a local&nbsp;<em>proxy</em> function and a remote&nbsp;<em>stub</em> function. Parameter values are&nbsp;<em>marshalled</em> into a block of data that can be transmitted from the proxy to the stub for&nbsp;<em>demarshalling</em> and calling the actual function. Return values are processed in the same way as input values.</p>
+
+<p><strong>Replication</strong> &ndash; A process where selected modifications in a master&nbsp;database is replicated (re-played) into&nbsp;another database.</p>
+
+<p><strong>Restriction Factor</strong> &ndash; Each relational expression specified in the WHERE&nbsp;clause of a query has an associated restriction factor that is estimated by the SQL optimizer that specifies the fraction (or percentage) of the table for which the expression will be true. For example, in the query select * from book where bookid = &lsquo;austen013px&rsquo; the relational expression bookid = &lsquo;austen013px&rsquo; has a restriction factor equal to .003 (only one out of 3213px rows will satisfy this expression).</p>
+
+<p><strong>Result Set</strong> &ndash; The complete set of rows that is returned by a particular SELECT&nbsp;statement.</p>
+
+<p><strong>Rollback</strong> &ndash; An operation, usually performed by the SQL ROLLBACK&nbsp;statement, that discards all of the changes made by all INSERT, UPDATE&nbsp;and DELETE&nbsp;statements that have been executed since the most recently started transaction (e.g., START TRANSACTION&nbsp;statement).</p>
+
+<p><strong>Row</strong> &ndash;&nbsp;One set of related values for all of the columns declared in a given table. Also known as a record occurrence.</p>
+
+<p><strong>Royalty</strong> &ndash; A License fee set forth in an Agreement (Product and Pricing Addendum).</p>
+
+<p><strong>Runtime</strong>&nbsp;&ndash;&nbsp;A portion of a DBMS that is included within the process space of an application program.</p>
+
+<p><strong>Scalability</strong> &ndash; A software system is scalable when its performance and overall system throughput continues to improve as more computing resources are made available for its use. This usually comes in the form of the number of CPUs and cores available in the computer on which the software system is run.</p>
+
+<p><strong>Scalar Function</strong> &ndash; Either a built-in SQL function or a user-defined function that returns a single value computed only from the values of any required arguments at the time the function is called.</p>
+
+<p><strong>Schema</strong> &ndash; A representation of the structure&nbsp;of a database. It may be graphical or textual. Graphical representations typically involve the use of boxes that represent database tables and arrows that represent inter-table relationships. Textual schema representations utilize Database Definition Language (DDL) statements to describe a database design.</p>
+
+<p><strong>Searched Update/Delete</strong> &ndash; An SQL update or delete statement in which the rows to be updated/deleted are those for which the conditional expression specified in the WHERE&nbsp;clause is true.</p>
+
+<p><strong>Seat</strong> &ndash; A copy of a Product, or any of its components, installed on a single machine.</p>
+
+<p><strong>Semaphore</strong> &ndash; A primitive computing operation&nbsp;that is used to synchronize shared access to data. Sometimes called a &ldquo;mutex&rdquo; meaning a &ldquo;mutually exclusive section&rdquo;. Semaphores control concurrent access to data by restricting access to critical sections of code that manipulate that&nbsp;data.</p>
+
+<p><strong>Server (Software)</strong> &ndash; A Seat that resides on a single Server machine and is capable of accepting connections from one or more Seats residing on Client machines.</p>
+
+<p><strong>Set</strong> &ndash; A method used to implement the one-to-many relationship formed between two tables based on their foreign and primary key declarations. The term &ldquo;set&rdquo; comes from the CODASYL Network Model definition. A set may be employed in a relational database when&nbsp;an owner (primary key) table and a member (foreign key) table where all of the member table rows that are related to the same owner table row are connected together with a linked list.   </p>
+
+<p><strong>Source Code (Raima)</strong> &ndash; The English language source code version of a Product, and any accompanying comments or other programmer Documentation, provided by Raima to Licensee pursuant to the terms of an Agreement. The capitalized term Source Code as used in an Agreement does not include OSS.</p>
+
+<p><strong>SQL</strong>&nbsp;&ndash; The standardized and commonly accepted language used for defining, querying and manipulating a relational database. The etymology of &ldquo;SQL&rdquo; is unclear, possibly a progression from &ldquo;QueL&rdquo; (Query Language) to &ldquo;SeQueL&rdquo; to &ldquo;SQL.&rdquo; However, some experts don&rsquo;t like the expansion &ldquo;Structured Query Language&rdquo; in that its structure is inconsistent and a historical patchwork.   </p>
+
+<p><strong>Stored Procedure</strong> &ndash; A named and optionally parameterized compiled set of SQL database access statements that can be executed as a unit through a call to the stored procedure.</p>
+
+<p><strong>Synchronization</strong> &ndash; The implementation method (frequently using semaphores) by which concurrently executing multiple computer threads or processes can safely access and update shared data.</p>
+
+<p><strong>System Catalog</strong> &ndash; See catalog.</p>
+
+<p><strong>Table</strong> &ndash; A collection of closely related columns. A table consists of rows each of which shares the same columns but vary in the column values.</p>
+
+<p><strong>Third Party Software</strong> &ndash; Software that is licensed separately by a third party with the Product(s) or Documentation.</p>
+
+<p><strong>Thread</strong> &ndash; A single, sequential execution of a computer program or program segment. A program can consist of one or more concurrently executing threads. Where multiple threads access the same data, some kind of synchronization method needs to be employed to ensure that the data is only accessed by one thread at a time.</p>
+
+<p><strong>Timeout</strong> &ndash; Occurs when a lock request has waited longer than the prescribed wait time for the request to be granted.</p>
+
+<p><strong>Transaction Log</strong> &ndash; A sequential record of all of the database changes made by each transaction in the order they were issued. The transaction log is used to ensure that a database conforms to the ACID properties. Transaction logs are also used to mirror or replicate data to other databases.</p>
+
+<p><strong>Transaction</strong> &ndash; A set of logically related database modifications that are written to the database as a unit. The database changes associated with a given transaction are guaranteed by the DBMS to be either completely written to the database or, in the event of a system failure, none are written. The state of the database both before and after a transaction will be consistent with its design.</p>
+
+<p><strong>Transactional File Server (TFS)</strong> &ndash; An architectural piece of Raima&rsquo;s RDM system which may be linked in-process with application code or executed separately as a server process.&nbsp;Its responsibility is to&nbsp;perform all of the database file input and output, serving up database pages to the RDM Runtime library&nbsp;as requested, controlling read-only transactions, and committing all transaction change logs to the database.</p>
+
+<p><strong>Transactional Stored Procedure</strong> &ndash; A modification stored procedure in which the database changes made by the procedure are encapsulated in its own transaction.</p>
+
+<p><strong>Update (of Product)</strong> &ndash; A Product that has been modified in a minor way, including but not limited to bug fixes, and has been furnished to Licensee under this Agreement. An Update is represented by a Product version number that increments to the right of the decimal point.</p>
+
+<p><strong>Upgrade (of Product)</strong> &ndash; A Product that has been modified in a major way, and is released as a new version of the Product. An Upgrade is represented by a Product version number that increments to the left of the decimal point.</p>
+
+<p><strong>Use</strong> &ndash; Storing, loading, installing, and/or running a Product, or displaying screens generated by a Product.</p>
+
+<p><strong>User-defined Function</strong> &ndash; An application-specific SQL callable scalar or aggregate function written in C.</p>
+
+<p><strong>User-defined Procedure</strong> &ndash; An application-specific function written in C and invocable through use of the SQL call statement.</p>
+
+<p><strong>Velocis</strong> &ndash; Former name of a DBMS product now called RDM Server.</p>
+
+<p><strong>Virtual Table</strong> &ndash; An SQL table that is defined through a set of application-specific, C functions that conform to a particular interface specification that allow a non-database data source (e.g., a device, etc.) to be accessed as if it was a conventional SQL table.</p>
+
+<p><strong>WAN</strong> &ndash; A Wide&nbsp;Area Network, as &nbsp;contrasted to Local&nbsp;Area Networks (LAN), Normally WAN refers to Internet. Bandwidth (speed) is a primary difference between local and wide-area networking.</p>
+
+<p><strong>Wi-Fi</strong> &ndash; The common name for standardized local-area wireless technology.</p>
+
+<p><strong>XML</strong> &ndash; Extensible Markup Language. XML documents are much used in the Internet&rsquo;s World-Wide Web but are also used in many computing contexts in which data needs to be shared.</p>
+
+<hr />
+

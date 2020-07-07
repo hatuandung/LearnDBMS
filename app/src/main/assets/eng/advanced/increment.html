@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL AUTO INCREMENT Field</h1>
+<p>Auto-increment allows a unique number to be generated when a new record is inserted into a table.</p>
+<hr />
+<h2>The AUTO INCREMENT Field</h2>
+<p>Very often we would like the value of the primary key field to be created automatically every time a new record is inserted.</p>
+<p>We would like to create an auto-increment field in a table.</p>
+<hr />
+<h2>Syntax for MySQL</h2>
+<p>The following SQL statement defines the "P_Id" column to be an auto-increment primary key field in the "Persons" table:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Persons<br />
+(<br />
+P_Id int NOT NULL AUTO_INCREMENT,<br />
+LastName varchar(255) NOT NULL,<br />
+FirstName varchar(255),<br />
+Address varchar(255),<br />
+City varchar(255),<br />
+PRIMARY KEY (P_Id)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>MySQL uses the AUTO_INCREMENT keyword to perform an auto-increment feature.</p>
+<p>By default, the starting value for AUTO_INCREMENT is 1, and it will increment by 1 for each new record.</p>
+<p>To let the AUTO_INCREMENT sequence start with another value, use the following SQL statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons AUTO_INCREMENT=100</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>To insert a new record into the "Persons" table, we will not have to specify a value for the "P_Id" column (a unique value will be added automatically):</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>INSERT INTO Persons (FirstName,LastName)<br />
+VALUES ('Michael','Dener')</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The SQL statement above would insert a new record into the "Persons" table. The "P_Id" column would be assigned a unique value. The "FirstName" column would be set to "Michael" and the "LastName" column would be set to "Dener".</p>
+<hr />
+<h2>Syntax for SQL Server</h2>
+<p>The following SQL statement defines the "P_Id" column to be an auto-increment primary key field in the "Persons" table:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Persons<br />(<br />
+P_Id int PRIMARY KEY IDENTITY,<br />
+LastName varchar(255) NOT NULL,<br />
+FirstName varchar(255),<br />
+Address varchar(255),<br />
+City varchar(255)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The MS SQL Server uses the IDENTITY keyword to perform an auto-increment feature.</p>
+<p>By default, the starting value for IDENTITY is 1, and it will increment by 1 for each new record.</p>
+<p>To specify that the "P_Id" column should start at value 10 and increment by 5, change the identity to IDENTITY(10,5).</p>
+<p>To insert a new record into the "Persons" table, we will not have to specify a value for the "P_Id" column (a unique value will be added automatically):</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>INSERT INTO Persons (FirstName,LastName)<br />
+VALUES ('Michael','Dener')</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The SQL statement above would insert a new record into the "Persons" table. The "P_Id" column would be assigned a unique value. The "FirstName" column would be set to "Michael" and the "LastName" column would be set to "Dener".</p>
+<hr />
+<h2>Syntax for Access</h2>
+<p>The following SQL statement defines the "P_Id" column to be an auto-increment primary key field in the "Persons" table:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Persons<br />(<br />P_Id PRIMARY KEY AUTOINCREMENT,<br />
+LastName varchar(255) NOT NULL,<br />
+FirstName varchar(255),<br />
+Address varchar(255),<br />City varchar(255)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The MS Access uses the AUTOINCREMENT keyword to perform an auto-increment feature.</p>
+<p>By default, the starting value for AUTOINCREMENT is 1, and it will increment by 1 for each new record.</p>
+<p>To specify that the "P_Id" column should start at value 10 and increment by 5, change the autoincrement to AUTOINCREMENT(10,5).</p>
+<p>To insert a new record into the "Persons" table, we will not have to specify a value for the "P_Id" column (a unique value will be added automatically):</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>INSERT INTO Persons (FirstName,LastName)<br />
+VALUES ('Michael','Dener')</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The SQL statement above would insert a new record into the "Persons" table. The "P_Id" column would be assigned a unique value. The "FirstName" column would be set to "Michael" and the "LastName" column would be set to "Dener".</p>
+<hr />
+<h2>Syntax for Oracle</h2>
+<p>In Oracle the code is a little bit more tricky.</p>
+<p>You will have to create an auto-increment field with the sequence object (this object generates a number sequence).</p>
+<p>Use the following CREATE SEQUENCE syntax:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE SEQUENCE seq_person<br />
+MINVALUE 1<br />
+START WITH 1<br />
+INCREMENT BY 1<br />
+CACHE 10</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The code above creates a sequence object called seq_person, that starts with 1 and will increment by 1. It will also cache up to 10 values for performance. The cache option specifies how many sequence values will be stored in memory for faster access.</p>
+<p>To insert a new record into the "Persons" table, we will have to use the nextval function (this function retrieves the next value from seq_person sequence):</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>INSERT INTO Persons (P_Id,FirstName,LastName)<br />
+VALUES (seq_person.nextval,<br />'Michael','Dener')</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The SQL statement above would insert a new record into the "Persons" table. The "P_Id" column would be assigned a unique value. The "FirstName" column would be set to "Michael" and the "LastName" column would be set to "Dener".</p>
+</body>
+</html>

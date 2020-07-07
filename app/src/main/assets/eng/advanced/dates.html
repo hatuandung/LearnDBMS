@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL Date Functions</h1>
+<hr />
+<h2>SQL Dates</h2>
+<p><img border="0" src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note</b> The most difficult part when working with dates is to be sure that the format of the date you are trying to insert, matches the format of the date column in the database.</p>
+<p>As long as your data contains only the date portion, your queries will work as expected. However, if a time portion is involved, it gets complicated.</p>
+<p>Before talking about the complications of querying for dates, we will look at the most important built-in functions for working with dates.</p>
+<hr />
+<h2>MySQL Date Functions</h2>
+<p>The following table lists the most important built-in date functions in MySQL:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Function</th> 
+    <th>Description</th>
+  </tr> 
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/mysql/now.html">NOW()</a></td>
+    <td>Returns the current date and time</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/mysql/curdate.html">CURDATE()</a></td>
+    <td>Returns the current date</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/mysql/curtime.html">CURTIME()</a></td>
+    <td>Returns the current time</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/mysql/date.html">DATE()</a></td>
+    <td>Extracts the date part of a date or date/time expression</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/mysql/extract.html">EXTRACT</a></td>
+    <td>Returns a single part of a date/time</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/mysql/date_add.html">DATE_ADD()</a></td>
+    <td>Adds a specified time interval to a date</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/mysql/date_sub.html">DATE_SUB()</a></td>
+    <td>Subtracts a specified time interval from a date</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/mysql/datediff.html">DATEDIFF()</a></td>
+    <td>Returns the number of days between two dates</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/mysql/date_format.html">DATE_FORMAT()</a></td>
+    <td>Displays date/time data in different formats</td> 
+  </tr> 
+</table>
+<hr />
+<h2>SQL Server Date Functions</h2>
+<p>The following table lists the most important built-in date functions in SQL Server:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Function</th> 
+    <th>Description</th>
+  </tr> 
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/sql_server/getdate.html">GETDATE()</a></td>
+    <td>Returns the current date and time</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/sql_server/datepart.html">DATEPART()</a></td>
+    <td>Returns a single part of a date/time</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/sql_server/dateadd.html">DATEADD()</a></td>
+    <td>Adds or subtracts a specified time interval from a date</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/sql_server/datediff.html">DATEDIFF()</a></td>
+    <td>Returns the time between two dates</td> 
+  </tr>
+  <tr> 
+    <td><a href="file:///android_asset/eng/date/sql_server/convert.html">CONVERT()</a></td>
+    <td>Displays date/time data in different formats</td> 
+  </tr>
+</table>
+<hr />
+<h2>SQL Date Data Types</h2>
+<p><b>MySQL</b> comes with the following data types for storing a date or a date/time value in the database:</p>
+<ul>
+  <li>DATE - format YYYY-MM-DD
+  <li>DATETIME - format: YYYY-MM-DD HH:MM:SS
+  <li>TIMESTAMP - format: YYYY-MM-DD HH:MM:SS
+  <li>YEAR - format YYYY or YY
+</ul>
+<p><b>SQL Server</b> comes with the following data types for storing a date or a date/time value in the database:</p>
+<ul>
+  <li>DATE - format YYYY-MM-DD
+  <li>DATETIME - format: YYYY-MM-DD HH:MM:SS
+  <li>SMALLDATETIME - format: YYYY-MM-DD HH:MM:SS
+  <li>TIMESTAMP - format: a unique number
+</ul>
+<p><img border="0" src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> The date types are chosen for a column when you create a new table in your database!</p>
+<p>For an overview of all data types available, go to <a href="file:///android_asset/eng/advanced/data_types.html">Data Types reference</a>.</p>
+<hr />
+<h2>SQL Working with Dates</h2>
+<p><img border="0" src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> You can compare two dates easily if there is no time component involved!</p>
+<p>Assume we have the following "Orders" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>OrderId</th> 
+    <th>ProductName</th> 
+    <th>OrderDate</th>
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Potatoes</td> 
+    <td>2011-09-10</td> 
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Pears</td> 
+    <td>2011-10-08</td> 
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Cherries</td> 
+    <td>2011-09-10</td> 
+  </tr> 
+</table>
+<p>Now we want to select the records with an OrderDate of "2008-11-11" from the table above.</p>
+<p>We use the following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM Orders WHERE OrderDate='2011-09-10'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>OrderId</th> 
+    <th>ProductName</th> 
+    <th>OrderDate</th>
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Potatoes</td> 
+    <td>2011-09-10</td> 
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Cherries</td> 
+    <td>2011-09-10</td> 
+  </tr> 
+</table>
+<p>Now, assume that the "Orders" table looks like this (notice the time component in the "OrderDate" column):</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>OrderId</th> 
+    <th>ProductName</th> 
+    <th>OrderDate</th>
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Potatoes</td> 
+    <td>2011-09-10 15:21:10</td> 
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Pears</td> 
+    <td>2011-10-08 10:45:57</td> 
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Cherries</td> 
+    <td>2011-09-10 17:06:24</td> 
+  </tr> 
+</table>
+<p>If we use the same SELECT statement as above we will get no result! This is because the query is looking only for dates with no time portion.</p>
+<p><img border="0" src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Tip:</b> If you want to keep your queries simple and easy to maintain, do not allow time components in your dates!</p>
+</body>
+</html>

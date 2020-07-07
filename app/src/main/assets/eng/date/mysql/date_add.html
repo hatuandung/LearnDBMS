@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>MySQL DATE_ADD() Function</h1>
+<hr />
+<h2>Definition and Usage</h2>
+<p>The DATE_ADD() function adds a specified time interval to a date.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>DATE_ADD(date,INTERVAL expr type)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>Where date is a valid date expression and expr is the number of interval you want to add.</p>
+<p>Type can be one of the following:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Type Value</th> 
+  </tr> 
+  <tr> 
+    <td>MICROSECOND</td> 
+  </tr> 
+   <tr> 
+    <td>SECOND</td> 
+  </tr> 
+  <tr> 
+    <td>MINUTE</td> 
+  </tr> 
+  <tr> 
+    <td>HOUR</td> 
+  </tr> 
+  <tr> 
+    <td>DAY</td> 
+  </tr> 
+  <tr> 
+    <td>WEEK</td> 
+  </tr> 
+   <tr> 
+    <td>MONTH</td> 
+  </tr> 
+  <tr> 
+    <td>QUARTER</td> 
+  </tr> 
+  <tr> 
+    <td>YEAR</td> 
+  </tr> 
+  <tr> 
+    <td>SECOND_MICROSECOND</td> 
+  </tr> 
+  <tr> 
+    <td>MINUTE_MICROSECOND</td> 
+  </tr> 
+   <tr> 
+    <td>MINUTE_SECOND</td> 
+  </tr> 
+  <tr> 
+    <td>HOUR_MICROSECOND</td> 
+  </tr> 
+  <tr> 
+    <td>HOUR_SECOND</td> 
+  </tr> 
+  <tr> 
+    <td>HOUR_MINUTE</td> 
+  </tr> 
+  <tr> 
+    <td>DAY_MICROSECOND</td> 
+  </tr> 
+   <tr> 
+    <td>DAY_SECOND</td> 
+  </tr> 
+  <tr> 
+    <td>DAY_MINUTE</td> 
+  </tr> 
+  <tr> 
+    <td>DAY_HOUR</td> 
+  </tr> 
+  <tr> 
+    <td>YEAR_MONTH</td> 
+  </tr> 
+</table>
+<hr />
+<h2>Example</h2>
+<p>Assume we have the following "Orders" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>OrderId</th> 
+    <th>ProductName</th> 
+    <th>OrderDate</th>
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Chocolate</td> 
+    <td>2011-12-07 11:41:36.752</td> 
+  </tr> 
+</table>
+<p>Now we want to add 15 days to the "OrderDate", to find the payment date.</p>
+<p>We use the following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT OrderId,DATE_ADD(OrderDate, INTERVAL 15 DAY) AS OrderPayDate<br />
+FROM Orders</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>OrderId</th> 
+    <th>OrderPayDate</th>
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>2011-12-22 11:41:36.752</td> 
+  </tr> 
+</table>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL CHECK Constraint</h1>
+<hr />
+<h2>The SQL CHECK Constraint</h2>
+<p>The CHECK constraint is used to limit the value range that can be placed in a column.</p>
+<p>If you define a CHECK constraint on a single column it allows only certain values for this column.</p>
+<p>If you define a CHECK constraint on a table it can limit the values in certain columns based on values in other columns in the row.</p>
+<hr />
+<h2>SQL CHECK Constraint on CREATE TABLE</h2>
+<p>The following SQL creates a CHECK constraint on the "P_Id" column when the "Persons" table is created. The CHECK constraint specifies that the column "P_Id" must only include integers greater than 0.</p>
+<b>MySQL:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Persons<br />(<br />P_Id int NOT NULL,<br />LastName varchar(255) NOT NULL,<br />FirstName varchar(255),<br />
+Address varchar(255),<br />City varchar(255),<br />CHECK (P_Id>0)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<b>SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Persons<br />(<br />P_Id int NOT NULL CHECK (P_Id>0),<br />LastName varchar(255) NOT NULL,<br />FirstName varchar(255),<br />Address varchar(255),<br />City varchar(255)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>To allow naming of a CHECK constraint, and for defining a CHECK constraint on multiple columns, use the following SQL syntax:</p>
+<b>MySQL / SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Persons<br />(<br />P_Id int NOT NULL,<br />LastName varchar(255) NOT NULL,<br />FirstName varchar(255),<br />
+Address varchar(255),<br />City varchar(255),<br />CONSTRAINT chk_Person CHECK (P_Id>0 AND City='Sander')<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL CHECK Constraint on ALTER TABLE</h2>
+<p>To create a CHECK constraint on the "P_Id" column when the table is already created, use the following SQL:</p>
+<b>MySQL / SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />ADD CHECK (P_Id>0)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>To allow naming of a CHECK constraint, and for defining a CHECK constraint on multiple columns, use the following SQL syntax:</p>
+<b>MySQL / SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />ADD CONSTRAINT chk_Person<br />CHECK (P_Id>0 AND City='Sander')</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>To DROP a CHECK Constraint</h2>
+<p>To drop a CHECK constraint, use the following SQL:</p>
+<b>MySQL:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />DROP CONSTRAINT chk_Person</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<b>SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />DROP CHECK chk_Person</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+<style>
+    img{
+width:100%;}
+</style>
+<div class="container">
+<div class="row">
+
+
+
+
+<div class="span9">
+<div id="body-content">
+<h3>Normalization of Database</h3>
+<p>Database Normalisation is a technique of organizing the data in the database. Normalization is a systematic approach of decomposing tables to eliminate data redundancy and undesirable characteristics like Insertion, Update and Deletion Anamolies. It is a multi-step process that puts data into tabular form by removing duplicated data from the relation tables.</p> 
+<p>Normalization is used for mainly two purpose,</p>
+<ul class="content">
+<li>Eliminating reduntant(useless) data.</li>
+<li>Ensuring data dependencies make sense i.e data is logically stored.</li>
+</ul>
+<hr>
+<h4>Problem Without Normalization</h4>
+<p>Without Normalization, it becomes difficult to handle and update the database, without facing data loss. Insertion, Updation and Deletion Anamolies are very frequent if Database is not Normalized. To understand these anomalies let us take an example of <b>Student</b> table.</p>
+<table class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="table table-bordered table-striped">
+<tbody><tr><th>S_id</th><th>S_Name</th><th>S_Address</th><th>Subject_opted</th></tr>
+<tr><td>401</td><td>Adam</td><td>Noida</td><td>Bio</td></tr>
+<tr><td>402</td><td>Alex</td><td>Panipat</td><td>Maths</td></tr>
+<tr><td>403</td><td>Stuart</td><td>Jammu</td><td>Maths</td></tr>
+<tr><td>404</td><td>Adam</td><td>Noida</td><td>Physics</td></tr>
+</tbody></table>
+<hr>
+<ul class="content">
+<li><b>Updation Anamoly :</b> To update address of a student who occurs twice or more than twice in a table, we will have to update <b>S_Address</b> column in all the rows, else data will become inconsistent.</li>
+<li><b>Insertion Anamoly :</b> Suppose for a new admission, we have a Student id(S_id), name and address of a student but if student has not opted for any subjects yet then we have to insert <b>NULL</b> there, leading to Insertion Anamoly.</li>
+<li><b>Deletion Anamoly :</b> If (S_id) 401 has only one subject and temporarily he drops it, when we delete that row, entire student record will be deleted along with it.</li>
+</ul>
+<hr>
+<h4>Normalization Rule</h4>
+<p>Normalization rule are divided into following normal form.</p>
+<ol class="content">
+<li>First Normal Form</li>
+<li>Second Normal Form</li>
+<li>Third Normal Form</li>
+<li>BCNF</li>
+</ol>
+<hr>
+<h4>First Normal Form (1NF)</h4>
+<p>As per First Normal Form, no two Rows of data must contain repeating group of information i.e each set of column must have a unique value, such that multiple columns cannot be used to fetch the same row. Each table should be organized into rows, and each row should have a primary key that distinguishes it as unique. </p>
+<p>The <b>Primary key</b> is usually a single column, but sometimes more than one column can be combined to create a single primary key. For example consider a table which is not in First normal form</p>
+<p><b>Student Table :</b></p>
+<table class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="table table-bordered table-striped">
+<tbody><tr><th>Student</th><th>Age</th><th>Subject</th></tr>
+<tr><td>Adam</td><td>15</td><td>Biology, Maths</td></tr>
+<tr><td>Alex</td><td>14</td><td>Maths</td></tr>
+<tr><td>Stuart</td><td>17</td><td>Maths</td></tr>
+</tbody></table>
+<p>In First Normal Form, any row must not have a column in which more than one value is saved, like separated with commas. Rather than that, we must separate such data into multiple rows.</p>
+<p><b>Student Table following 1NF will be :</b></p>
+<table class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="table table-bordered table-striped">
+<tbody><tr><th>Student</th><th>Age</th><th>Subject</th></tr>
+<tr><td>Adam</td><td>15</td><td>Biology</td></tr>
+<tr><td>Adam</td><td>15</td><td>Maths</td></tr>
+<tr><td>Alex</td><td>14</td><td>Maths</td></tr>
+<tr><td>Stuart</td><td>17</td><td>Maths</td></tr>
+</tbody></table>
+<p>Using the First Normal Form, data redundancy increases, as there will be many columns with same data in multiple rows but each row as a whole will be unique. </p>
+<hr>
+<h4>Second Normal Form (2NF)</h4>
+<p>As per the Second Normal Form there must not be any partial dependency of any column on primary key. It means that for a table that has concatenated primary key, each column in the table that is not part of the primary key must depend upon the entire concatenated key for its existence. If any column depends only on one part of the concatenated key, then the table fails <b>Second normal form</b>.</p>
+
+<p>In example of First Normal Form there are two rows for Adam, to include multiple subjects that he has opted for. While this is searchable, and follows First normal form, it is an inefficient use of space. Also in the above Table in First Normal Form, while the candidate key is {<b>Student</b>, <b>Subject</b>}, <b>Age</b> of Student only depends on Student column, which is incorrect as per Second Normal Form. To achieve second normal form, it would be helpful to split out the subjects into an independent table, and match them up using the student names as foreign keys.</p>
+
+<p><b>New Student Table following 2NF will be :</b></p>
+<table class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="table table-bordered table-striped">
+<tbody><tr><th>Student</th><th>Age</th></tr>
+<tr><td>Adam</td><td>15</td></tr>
+<tr><td>Alex</td><td>14</td></tr>
+<tr><td>Stuart</td><td>17</td></tr>
+</tbody></table>
+<p>In Student Table the candidate key will be <b>Student</b> column, because all other column i.e <b>Age</b> is dependent on it.</p>
+<p><b>New Subject Table introduced for 2NF will be :</b></p>
+<table class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="table table-bordered table-striped">
+<tbody><tr><th>Student</th><th>Subject</th></tr>
+<tr><td>Adam</td><td>Biology</td></tr>
+<tr><td>Adam</td><td>Maths</td></tr>
+<tr><td>Alex</td><td>Maths</td></tr>
+<tr><td>Stuart</td><td>Maths</td></tr>
+</tbody></table>
+<p>In Subject Table the candidate key will be {<b>Student</b>, <b>Subject</b>} column. Now, both the above tables qualifies for Second Normal Form and will never suffer from Update Anomalies. Although there are a few complex cases in which table in Second Normal Form suffers Update Anomalies, and to handle those scenarios Third Normal Form is there.</p>
+<hr>
+<h4>Third Normal Form (3NF)</h4>
+<p>
+<b>Third Normal form</b> applies that every non-prime attribute of table must be dependent on primary key, or we can say that, there should not be the case that a non-prime attribute is determined by another non-prime attribute. So this <i>transitive functional dependency</i> should be removed from the table and also the table must be in <b>Second Normal form</b>. For example, consider a table with following fields.
+</p>
+
+<p><b>Student_Detail Table :</b></p>
+<table class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="table table-bordered">
+<tbody><tr><th>Student_id</th><th>Student_name</th><th>DOB</th><th>Street</th><th>city</th><th>State</th><th>Zip</th></tr>
+</tbody></table>
+<p>In this table Student_id is Primary key, but street, city and state depends upon Zip. The dependency between zip and other fields is called <b>transitive dependency</b>. Hence to apply <b>3NF</b>, we need to move the street, city and state to new table, with <b>Zip</b> as primary key.</p>
+<p><b>New Student_Detail Table :</b></p>
+<table class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="table table-bordered">
+<tbody><tr><th>Student_id</th><th>Student_name</th><th>DOB</th><th>Zip</th></tr>
+</tbody></table>
+
+<p><b>Address Table :</b></p>
+<table class="reference" class="reference" class="reference" class="reference" class="reference" class="reference" class="table table-bordered">
+<tbody><tr><th>Zip</th><th>Street</th><th>city</th><th>state</th></tr>
+</tbody></table>
+<hr>
+<p>The advantage of removing transtive dependency is,  
+</p>
+<ul class="content">
+<li>Amount of data duplication is reduced.</li>
+<li>Data integrity achieved.</li>
+</ul>
+<hr>
+<h4>Boyce and Codd Normal Form (BCNF)</h4>
+<p><b>Boyce and Codd Normal Form</b> is a higher version of the Third Normal form. This form deals with certain type of anamoly that is not handled by 3NF. A 3NF table which does not have multiple overlapping candidate keys is said to be in BCNF. For a table to be in BCNF, following conditions must be satisfied:</p>
+<ul class="content">
+<li>R must be in 3rd Normal Form</li>
+<li>and, for each functional dependency ( X -&gt; Y ), X should be a super Key.</li>
+</ul>
+<p class="center"><img src="./normalization_files/BCNF.png" alt="BCNF Normal Form"></p>
+<hr>
+
+</div>
+</div>
+</div>
+</div> 
+

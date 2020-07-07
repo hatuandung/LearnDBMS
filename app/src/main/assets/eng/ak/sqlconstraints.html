@@ -1,0 +1,148 @@
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+
+
+
+
+
+
+<div class="container">
+<div class="row">
+
+
+
+
+<div class="span9">
+<div id="body-content">
+<h3>SQL Constraints</h3>
+<p>
+SQl Constraints are rules used to limit the type of data that can go into a table, to maintain the accuracy and integrity of the data inside table. 
+</p>
+<p>
+Constraints can be divided into following two types,
+</p>
+<ul class="content">
+<li><b>Column level constraints :</b> limits only column data</li>
+<li><b>Table level constraints :</b> limits whole table data</li>
+</ul>
+<p>Constraints are used to make sure that the integrity of data is maintained in the database. Following are the most used constraints that can be applied to a table.</p>
+<ul class="content">
+<li>NOT NULL</li>
+<li>UNIQUE</li>
+<li>PRIMARY KEY</li>
+<li>FOREIGN KEY</li>
+<li>CHECK</li>
+<li>DEFAULT</li>
+</ul>
+<hr>
+<h4>NOT NULL Constraint</h4>
+<p>
+NOT NULL constraint restricts a column from having a NULL value. Once <b>NOT NULL</b> constraint is applied to a column, you cannot pass a null value to that column. It enforces a column to contain a proper value. One important point to note about NOT NULL constraint is that it cannot be defined at table level.</p>
+<hr>
+<h4>Example using NOT NULL constraint</h4>
+<pre>CREATE table Student(s_id int NOT NULL, Name varchar(60), Age int);
+</pre>
+<p>
+The above query will declare that the <b>s_id</b> field of <b>Student</b> table will not take NULL value.
+</p>
+<hr>
+<h4>UNIQUE Constraint</h4>
+<p>
+UNIQUE constraint ensures that a field or column will only have unique values. A UNIQUE constraint field will not have duplicate data. UNIQUE constraint can be applied at column level or table level.
+</p>
+<hr>
+<h4>Example using UNIQUE constraint when creating a Table (Table Level)</h4>
+<pre>CREATE table Student(s_id int NOT NULL UNIQUE, Name varchar(60), Age int);
+</pre>
+<p>The above query will declare that the <b>s_id</b> field of <b>Student</b> table will only have unique values and wont take NULL value.</p>
+<hr>
+<h4>Example using UNIQUE constraint after Table is created (Column Level)</h4>
+<pre>ALTER table Student add UNIQUE(s_id);
+</pre>
+<p>
+The above query specifies that <b>s_id</b> field of <b>Student</b> table will only have unique value. 
+</p>
+<hr>
+<h4>Primary Key Constraint</h4>
+<p>
+Primary key constraint uniquely identifies each record in a database. A Primary Key must contain unique value and it must not contain null value. Usually Primary Key is used to index the data inside the table.
+</p>
+<hr>
+<h4>Example using PRIMARY KEY constraint at Table Level</h4>
+<pre>CREATE table Student (s_id int <b>PRIMARY KEY</b>, Name varchar(60) NOT NULL, Age int);
+</pre>
+<p>
+The above command will creates a PRIMARY KEY on the <code>s_id</code>.
+</p>
+<hr>
+<h4>Example using PRIMARY KEY constraint at Column Level</h4>
+<pre>ALTER table Student add PRIMARY KEY (s_id);
+</pre>
+<p>
+The above command will creates a PRIMARY KEY on the <code>s_id</code>.
+</p>
+<hr>
+<h4>Foreign Key Constraint</h4>
+<p>
+FOREIGN KEY is used to relate two tables. FOREIGN KEY constraint is also used to restrict actions that would destroy links between tables. To understand FOREIGN KEY, let's see it using two table.  
+</p>
+<p><b>Customer_Detail Table :</b></p>
+<table class="reference" class="table table-bordered table-striped">
+<tbody><tr><th>c_id</th><th>Customer_Name</th><th>address</th></tr>
+<tr><td>101</td><td>Adam</td><td>Noida</td></tr>
+<tr><td>102</td><td>Alex</td><td>Delhi</td></tr>
+<tr><td>103</td><td>Stuart</td><td>Rohtak</td></tr>
+</tbody></table>
+<p><b>Order_Detail Table :</b></p>
+<table class="reference" class="table table-bordered table-striped">
+<tbody><tr><th>Order_id</th><th>Order_Name</th><th>c_id</th></tr>
+<tr><td>10</td><td>Order1</td><td>101</td></tr>
+<tr><td>11</td><td>Order2</td><td>103</td></tr>
+<tr><td>12</td><td>Order3</td><td>102</td></tr>
+</tbody></table>
+<p>
+In <b>Customer_Detail</b> table, c_id is the primary key which is set as foreign key in <b>Order_Detail</b> table. The value that is entered in c_id which is set as foreign key in <b>Order_Detail</b> table must be present in <b>Customer_Detail</b> table where it is set as primary key. This prevents invalid data to be inserted into c_id column of <b>Order_Detail</b> table.
+</p>
+<hr>
+<h4>Example using FOREIGN KEY constraint at Table Level</h4>
+<pre>CREATE table Order_Detail(order_id int PRIMARY KEY,
+order_name varchar(60) NOT NULL,
+<i>c_id int</i> <b>FOREIGN KEY</b> REFERENCES <b>Customer_Detail</b>(<i>c_id</i>));
+</pre>
+<p>In this query, c_id in table Order_Detail is made as foriegn key, which is a reference of c_id column of Customer_Detail.</p>
+<hr>
+<h4>Example using FOREIGN KEY constraint at Column Level</h4>
+<pre>ALTER table Order_Detail add <b>FOREIGN KEY</b> (c_id) REFERENCES Customer_Detail(c_id);
+</pre>
+<hr>
+<h4>Behaviour of Foriegn Key Column on Delete</h4>
+<p>There are two ways to maintin the integrity of data in Child table, when a particular record is deleted in main table. When two tables are connected with Foriegn key, and certain data in the main table is deleted, for which record exit in child table too, then we must have some mechanism to save the integrity of data in child table.</p>
+<p class="center"><img src="./sqlconstraints_files/on-delete-foriegn-key.gif" alt="foriegn key behaviour on delete - cascade and Null"></p>
+<ul class="content">
+<li><b>On Delete Cascade :</b> This will remove the record from child table, if that value of foriegn key is deleted from the main table.</li>
+<li><b>On Delete Null :</b> This will set all the values in that record of child table as NULL, for which the value of foriegn key is eleted from the main table.</li>
+<li>If we don't use any of the above, then we cannot delete data from the main table for which data in child table exists. We will get an error if we try to do so.</li>
+<pre>ERROR : Record in child table exist</pre>
+</ul>
+<hr>
+<h4>CHECK Constraint</h4>
+<p>
+CHECK constraint is used to restrict the value of a column between a range. It performs check on the values, before storing them into the database. Its like condition checking before saving data into a column.
+</p>
+<hr>
+<h4>Example using CHECK constraint at Table Level</h4>
+<pre>create table Student(s_id int NOT NULL <b>CHECK(s_id &gt; 0)</b>,
+Name varchar(60) NOT NULL,
+Age int);
+</pre>
+<p>The above query will restrict the s_id value to be greater than zero.</p>
+<hr>
+<h4>Example using CHECK constraint at Column Level</h4>
+<pre>ALTER table Student add CHECK(s_id &gt; 0);
+</pre>
+<hr>
+
+</div>
+</div>
+</div>
+</div> 
+

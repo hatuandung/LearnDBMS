@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL CREATE INDEX Statement</h1>
+<p>The CREATE INDEX statement is used to create indexes in tables.</p>
+<p>Indexes allow the database application to find data fast; without reading the whole table.</p>
+<p>This can be done by giving the index a name, and by stating the table and field(s) to which the index will apply.</p>
+<hr />
+<h2>Indexes</h2>
+<p>An index can be created in a table to find data more quickly and efficiently.</p>
+<p>The users cannot see the indexes, they are just used to speed up searches/queries.</p>
+<p><img src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> Updating a table with indexes takes more time than updating a table without (because the indexes also need an update). So you should only create indexes on columns (and tables) that will be frequently searched against.</p>
+<h3>SQL CREATE INDEX Syntax</h3>
+<p>Creates an index on a table. Duplicate values are allowed:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE INDEX index_name<br />ON table_name (column_name)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<h3>SQL CREATE UNIQUE INDEX Syntax</h3>
+<p>Creates a unique index on a table. Duplicate values are not allowed:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE UNIQUE INDEX index_name<br />ON table_name (column_name)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p><img src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> The syntax for creating indexes varies amongst different databases. Therefore: Check the syntax for creating indexes in your database.</p>
+<hr />
+<h2>CREATE INDEX Example</h2>
+<p>The SQL statement below creates an index named "PIndex" on the "LastName" column in the "Persons" table:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE INDEX PIndex<br />ON Persons (LastName)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>If you want to create an index on a combination of columns, you can list the column names within the parentheses, separated by commas:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE INDEX PIndex<br />ON Persons (LastName, FirstName)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+</body>
+</html>

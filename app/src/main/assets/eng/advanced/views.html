@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL Views</h1>
+<p>A view is a virtual table.</p>
+<p>This chapter shows how to create, update, and delete a view.</p>
+<hr />
+<h2>SQL CREATE VIEW Statement</h2>
+<p>In SQL, a view is a virtual table based on the result-set of an SQL statement.</p>
+<p>A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.</p>
+<p>If data is changing in the underlying table, the same change is reflected in the view. A view can be built on top of a single table or multiple tables.</p>
+<p>You can add SQL functions, WHERE, and JOIN statements to a view and present the data as if the data were coming from one single table.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>SQL CREATE VIEW Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE VIEW view_name AS<br />
+SELECT column_name(s)<br />
+FROM table_name<br />
+WHERE condition</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p><img src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> A view always shows up-to-date data! The database engine recreates the data, using the view's SQL statement, every time a user queries a view.</p>
+<hr />
+<h2>SQL CREATE VIEW Examples</h2>
+<p>If you have the Northwind database you can see that it has several views installed by default.</p>
+<p>The view "Current Product List" lists all active products (products that are not discontinued) from the "Products" table. The view is created with the following SQL:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE VIEW [Current Product List] AS<br />
+SELECT ProductID,ProductName<br />
+FROM Products<br />
+WHERE Discontinued=No</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>We can query the view above as follows:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM [Current Product List]</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>Another view in the Northwind sample database selects every product in the "Products" table with a unit price higher than the average unit price:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE VIEW [Products Above Average Price] AS<br />
+SELECT ProductName,UnitPrice<br />
+FROM Products<br />
+WHERE UnitPrice>(SELECT AVG(UnitPrice) FROM Products)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>We can query the view above as follows:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM [Products Above Average Price]</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>Another view in the Northwind database calculates the total sale for each category in 1997. Note that this view selects its data from another view called "Product Sales for 1997":</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE VIEW [Category Sales For 1997] AS<br />
+SELECT DISTINCT CategoryName,Sum(ProductSales) AS CategorySales<br />
+FROM [Product Sales for 1997]<br />
+GROUP BY CategoryName</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>We can query the view above as follows:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM [Category Sales For 1997]</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>We can also add a condition to the query. Now we want to see the total sale only for the category "Beverages":</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM [Category Sales For 1997]<br />
+WHERE CategoryName='Beverages'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL Updating a View</h2>
+<p>You can update a view by using the following syntax:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>SQL CREATE OR REPLACE VIEW Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE OR REPLACE VIEW view_name AS<br />
+SELECT column_name(s)<br />
+FROM table_name<br />
+WHERE condition</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>Now we want to add the "Category" column to the "Current Product List" view. We will update the view with the following SQL:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE VIEW [Current Product List] AS<br />
+SELECT ProductID,ProductName,Category<br />
+FROM Products<br />
+WHERE Discontinued=No</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL Dropping a View</h2>
+<p>You can delete a view with the DROP VIEW command.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>SQL DROP VIEW Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>DROP VIEW view_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+</body>
+</html>

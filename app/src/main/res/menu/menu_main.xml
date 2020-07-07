@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_share"
+        android:title="Share App"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/menu_rate"
+        android:title="Rate this App"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:id="@+id/menu_disclaimer"
+        android:title="Disclaimer"
+        app:showAsAction="collapseActionView" />
+
+    <item android:title="Terminology"
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_action_queries"
+        android:id="@+id/menu_terminology"/>
+
+
+</menu>

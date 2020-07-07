@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>MySQL GETDATE() Function</h1>
+<hr />
+<h2>Definition and Usage</h2>
+<p>The GETDATE() function returns the current date and time from the SQL Server.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>GETDATE()</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>Where date1 and date2 are valid date or date/time expressions.</p>
+<p><img src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> Only the date parts of the values are used in the calculation.</p>
+<hr />
+<h2>Example</h2>
+<p>The following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT GETDATE() AS CurrentDateTime</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>will result in this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>CurrentDateTime</th> 
+  </tr> 
+  <tr> 
+    <td>2011-12-07 11:41:36.752</td> 
+  </tr> 
+</table>
+<p><img src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> The time part above goes all the way to milliseconds.</p>
+<h2>Example</h2>
+<p>The following SQL creates an "Orders" table with a datetime column (OrderDate):</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Orders<br />(<br />
+OrderId int NOT NULL PRIMARY KEY,<br />
+ProductName varchar(50) NOT NULL,<br />
+OrderDate datetime NOT NULL DEFAULT GETDATE()<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>Notice that the OrderDate column specifies GETDATE() as the default value. As a result, when you insert a row into the table, the current date and time are automatically inserted into the column.</p>
+<p>Now we want to insert a record into the "Orders" table:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>INSERT INTO Orders (ProductName) VALUES ('Chocolate')</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The "Orders" table will now look something like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>OrderId</th> 
+    <th>ProductName</th> 
+    <th>OrderDate</th>
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Chocolate</td> 
+    <td>2011-12-07 11:41:36.752</td> 
+  </tr> 
+</table>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="" />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL COUNT() Function</h1>
+<p>The COUNT() function returns the number of rows that matches a specified criteria.</p>
+<hr />
+<h2>The COUNT() Function</h2>
+<h3>SQL COUNT(column_name) Syntax</h3>
+<p>The COUNT(column_name) function returns the number of values (NULL values will not be counted) of the specified column:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT COUNT(column_name) FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>SQL COUNT(*) Syntax</h3>
+<p>The COUNT(*) function returns the number of records in a table:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT COUNT(*) FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<h3>SQL COUNT(DISTINCT column_name) Syntax</h3>
+<p>The COUNT(DISTINCT column_name) function returns the number of distinct values of the specified column:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT COUNT(DISTINCT column_name) FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p><img src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> COUNT(DISTINCT) works with ORACLE and Microsoft SQL Server, but not with Microsoft Access.</p>
+<hr />
+<h2>SQL COUNT(column_name) Example</h2>
+<p>We have the following "Orders" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>O_Id</th> 
+    <th>OrderDate</th> 
+    <th>OrderPrice</th>
+    <th>Customer</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>2011/11/07</td> 
+    <td>1200</td> 
+    <td>Johnson</td>
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>2011/08/15</td> 
+    <td>1500</td> 
+    <td>Brown</td>
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>2011/05/04</td> 
+    <td>600</td> 
+    <td>Johnson</td>
+  </tr> 
+  <tr> 
+    <td>4</td> 
+    <td>2011/05/21</td> 
+    <td>500</td>
+    <td>Johnson</td> 
+  </tr> 
+  <tr> 
+    <td>5</td> 
+    <td>2011/07/30</td> 
+    <td>2500</td> 
+    <td>Taylor</td>
+  </tr> 
+  <tr> 
+    <td>6</td> 
+    <td>2011/10/08</td> 
+    <td>300</td> 
+    <td>Brown</td>
+  </tr> 
+</table>
+<p>Now we want to count the number of orders from "Customer Brown".</p>
+<p>We use the following SQL statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT COUNT(Customer) AS CustomerBrown FROM Orders<br />
+WHERE Customer='Brown'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result of the SQL statement above will be 2, because the customer Brown has made 2 orders in total:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>CustomerBrown</th> 
+  </tr> 
+  <tr> 
+    <td>2</td> 
+  </tr> 
+</table>
+<hr />
+<h2>SQL COUNT(*) Example</h2>
+<p>If we omit the WHERE clause, like this:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT COUNT(*) AS NumberOfOrders FROM Orders</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>NumberOfOrders</th> 
+  </tr> 
+  <tr> 
+    <td>6</td> 
+  </tr> 
+</table>
+<p>which is the total number of rows in the table.</p>
+<hr />
+<h2>SQL COUNT(DISTINCT column_name) Example</h2>
+<p>Now we want to count the number of unique customers in the "Orders" table.</p>
+<p>We use the following SQL statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT COUNT(DISTINCT Customer) AS NumberOfCustomers FROM Orders</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>NumberOfCustomers</th> 
+  </tr> 
+  <tr> 
+    <td>3</td> 
+  </tr> 
+</table>
+<p>which is the number of unique customers (Johnson, Brown, and Taylor) in the "Orders" table.</p>
+</body>
+</html>

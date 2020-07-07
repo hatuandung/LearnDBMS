@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL SELECT INTO Statement</h1>
+<p>The SQL SELECT INTO statement can be used to create backup copies of tables.</p>
+<hr />
+<h2>The SQL SELECT INTO Statement</h2>
+<p>The SELECT INTO statement selects data from one table and inserts it into a different table.</p>
+<p>The SELECT INTO statement is most often used to create backup copies of tables.</p>
+<h3>SQL SELECT INTO Syntax</h3>
+<p>We can select all columns into the new table:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT *<br />INTO new_table_name [IN externaldatabase]<br />FROM old_tablename</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>Or we can select only the columns we want into the new table:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT column_name(s)<br />INTO new_table_name [IN externaldatabase]<br />FROM old_tablename</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL SELECT INTO Example</h2>
+<p><b>Make a Backup Copy</b> - Now we want to make an exact copy of the data in our "Persons" table.</p>
+<p>We use the following SQL statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT *<br />INTO Persons_Backup<br />FROM Persons</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>We can also use the IN clause to copy the table into another database:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT *<br />INTO Persons_Backup IN 'Backup.mdb'<br />FROM Persons</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>We can also copy only a few fields into the new table:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT LastName,FirstName<br />INTO Persons_Backup<br />FROM Persons</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL SELECT INTO - With a WHERE Clause</h2>
+<p>We can also add a WHERE clause.</p>
+<p>The following SQL statement creates a "Persons_Backup" table with only the persons who lives in the city "Sander":</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT LastName,Firstname<br />INTO Persons_Backup<br />FROM Persons<br />WHERE City='Sander'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL SELECT INTO - Joined Tables</h2>
+<p>Selecting data from more than one table is also possible.</p>
+<p>The following example creates a "Persons_Order_Backup" table contains data from the two tables "Persons" and "Orders":</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Persons.LastName,Orders.OrderNo<br />INTO Persons_Order_Backup<br />FROM Persons<br />INNER JOIN Orders<br />ON Persons.P_Id=Orders.P_Id</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</body>
+</html>

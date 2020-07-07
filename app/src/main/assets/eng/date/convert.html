@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL Server CONVERT() Function</h1>
+<hr />
+<h2>Definition and Usage</h2>
+<p>The CONVERT() function is a general function for converting data into a new data type and it can be used to display date/time data in different formats.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CONVERT(data_type(length),data_to_be_converted,style)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>Where data_type(length) specifies the target data type (with an optional length), data_to_be_converted contains the value to be converted, and style specifies the output format for the date/time.</p>
+<p>The styles that can be used are:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Style ID</th> 
+    <th>Style Format</th>
+  </tr> 
+  <tr> 
+    <td>100 or 0</td> 
+    <td>mon dd yyyy hh:miAM (or PM)</td>
+  </tr> 
+  <tr> 
+    <td>101</td> 
+    <td>mm/dd/yy</td>
+  </tr> 
+  <tr> 
+    <td>102</td> 
+    <td>yy.mm.dd</td>
+  </tr> 
+  <tr> 
+    <td>103</td> 
+    <td>dd/mm/yy</td>
+  </tr> 
+  <tr> 
+    <td>104</td> 
+    <td>dd.mm.yy</td>
+  </tr> 
+  <tr> 
+    <td>105</td> 
+    <td>dd-mm-yy</td>
+  </tr> 
+  <tr> 
+    <td>106</td> 
+    <td>dd mon yy</td>
+  </tr> 
+  <tr> 
+    <td>107</td> 
+    <td>Mon dd, yy</td>
+  </tr> 
+  <tr> 
+    <td>108</td> 
+    <td>hh:mm:ss</td>
+  </tr> 
+  <tr> 
+    <td>109 or 9</td> 
+    <td>mon dd yyyy hh:mi:ss:mmmAM (or PM)</td>
+  </tr> 
+  <tr> 
+    <td>110</td> 
+    <td>mm-dd-yy</td>
+  </tr> 
+  <tr> 
+    <td>111</td> 
+    <td>yy/mm/dd</td>
+  </tr> 
+  <tr> 
+    <td>112</td> 
+    <td>yymmdd</td>
+  </tr> 
+  <tr> 
+    <td>113 or 13</td> 
+    <td>dd mon yyyy hh:mm:ss:mmm(24h)</td>
+  </tr> 
+  <tr> 
+    <td>114</td> 
+    <td>hh:mi:ss:mmm(24h)</td>
+  </tr> 
+  <tr> 
+    <td>120 or 20</td> 
+    <td>yyyy-mm-dd hh:mi:ss(24h)</td>
+  </tr> 
+  <tr> 
+    <td>121 or 21</td> 
+    <td>yyyy-mm-dd hh:mi:ss.mmm(24h)</td>
+  </tr> 
+  <tr> 
+    <td>126</td> 
+    <td>yyyy-mm-ddThh:mm:ss.mmm(no spaces)</td>
+  </tr> 
+  <tr> 
+    <td>130</td> 
+    <td>dd mon yyyy hh:mi:ss:mmmAM</td>
+  </tr> 
+  <tr> 
+    <td>131</td> 
+    <td>dd/mm/yy hh:mi:ss:mmmAM</td>
+  </tr> 
+</table>
+<hr />
+<h2>Example</h2>
+<p>The following script uses the CONVERT() function to display different formats. We will use the GETDATE() function to get the current date/time:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CONVERT(VARCHAR(19),GETDATE())<br />
+CONVERT(VARCHAR(10),GETDATE(),110)<br />
+CONVERT(VARCHAR(11),GETDATE(),106)<br />
+CONVERT(VARCHAR(24),GETDATE(),113)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result would look something like this:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>Dec 21 2011 09:31 AM<br />
+12-21-2011<br />
+21 Dec 11<br />
+21 Dec 2011 09:31:48:567</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+</body>
+</html>

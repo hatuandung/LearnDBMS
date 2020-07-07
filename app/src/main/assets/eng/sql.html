@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title></title>
+        <link rel="stylesheet" href="../android_asset/css/style.css" />
+        <style>
+                .mylistol li span{
+
+                margin-bottom:10px;
+                color:blue;
+                }
+                .mylistol li{
+                margin-bottom:20px;
+                margin
+                }
+                ol{
+                padding-right:5px;
+                }
+        </style>
+</head>
+
+<body>
+
+
+
+<h3>SQL Query Set</h3>
+<ol class="mylistol">
+
+<li><b>Get database date.</b><br><span>select sysdate from dual;</span><br></li>
+<li><b>A column has some negative values and some positive values. It is required to find the sum of negative numbers and the sum of the positive numbers in two separate columns.</b><br><span>SELECT
+        SUM(CASE WHEN num < 0 THEN num ELSE 0 END) sum_negative,
+        SUM(CASE WHEN num > THEN num ELSE 0 END) sum_positive
+        FROM numbers;</span><br></li>
+<li><b>Count of employees department wise.</b><br><span>select COUNT(emp_id), dname from employee where  group by dname;</span><br></li>
+<li><b>Find the total salary department number wise where more than two employees exist.</b><br><span>select  dept_no, SUM(sal) As total_sal
+        FROM employee
+        GROUP BY dept_no
+        HAVING COUNT(emp_no) > 2;</span><br></li>
+<li><b>Count  manager and their salary in employee table.</b><br><span>select COUNT(manager),COUNT(sal) from employee;</span><br></li>
+<li><b>Delete employee data from employee who got incentives.</b><br><span>Delete from employee where employee_id in (select employee_ref_id from INCENTIVES);</span><br></li>
+<li><b>Find the 3rd MAX salary in the employee table.</b><br><span>select distinct sal from employee e1 where 3 = (select COUNT(distinct sal) from employee e2 where e1.sal <= e2.sal);</span><br></li>
+<li><b>Find the 3rd MIN salary in the employee table.</b><br><span>select distinct sal from employee e1 where 3 = (select COUNT(distinct sal) from employee e2where e1.sal >= e2.sal);</span><br></li>
+<li><b>Get all employee details from the employee table order by First_Name Ascending.</b><br><span>Select * from employee order by first_name asc;</span><br></li>
+<li><b>Get all employee details from the employee table order by First_Name Ascending and Salary descending.</b><br><span>Select * from employee order by first_name asc,SALARY desc;</span><br></li>
+<li><b>How can I retrieve all records of employee1 those should not present in employee2?</b><br><span>(Select * from employee) Minus (Select * from employee1);</span><br></li>
+<li><b>Get department wise average salary from employee table order by salary ascending.</b><br><span>select department,AVG(salary) Avg_Salary from employee group by department order by Avg_Salary asc;</span><br></li>
+<li><b>Get department, no of employees in a department, total salary with respect to a department from employee table order by total salary descending.</b><br><span>Select DEPARTMENT,COUNT(first_name),SUM(SALARY) Total_Salary from employee group by DEPARTMENT order by Total_Salary descending;</span><br></li>
+<li><b>Get department, total salary with respect to a department from employee table.</b><br><span>Select DEPARTMENT,SUM(SALARY) Total_Salary from employee group by department;</span><br></li>
+<li><b>Get employee details from employee table who joined before March 1st 2013.</b><br><span>Select * from employee where joining_date < to_date('01/03/2013','dd/mm/yyyy');</span><br></li>
+<li><b>Get employee details from employee table whose first name starts with 'J' and name contains 4 letters.</b><br><span>Select * from employee where first_name like 'J___'; (3 underscores)</span><br></li>
+<li><b>Get employee details from employee table whose first name starts with 'K'.</b><br><span>Select * from employee where first_name like 'K%';</span><br></li>
+<li><b>Get employee details from employee table whose joining month is  March .</b><br><span>Select * from employee where to_char(joining_date,'MM')='03' or Select * from employee where to_char(joining_date,'Mon')='Mar';</span><br></li>
+<li><b>Get employee details from employee table whose joining year is  2016 .</b><br><span>Select * from employee where to_char(joining_date,'YYYY')='2016';</span><br></li>
+<li><b>Get employee details from employee table whose Salary between 300000 and 500000.</b><br><span>Select * from employee where Salary between 300000 and 500000;</span><br></li>
+<li><b>Get Employee ID's of those employees who didn't receive incentives.</b><br><span>select employee_id from employee
+        MINUS
+        select employee_ref_id from INCENTIVES;</span><br></li>
+<li><b>Get first_name, Joining year, Joining Month and Joining Date from employee table.</b><br><span>Select first_name, to_char(joining_date,'YYYY') JoinYear , to_char(joining_date,'Mon'), to_char(joining_date,'dd') from employee;</span><br></li>
+<li><b>Get First_Name and Last_Name as single column from employee table separated by a '_'.</b><br><span>Select first_name|| '_' ||last_name from employee;</span><br></li>
+<li><b>Get first_name from employee table after removing white spaces from right side.</b><br><span>select RTRIM(first_name) from employee;</span><br></li>
+<li><b>Get First_Name from employee table after replacing 'o' with '$'.</b><br><span>select REPLACE(first_name,'o','$') from employee;</span><br></li>
+<li><b>Get First_Name from employee table using alias name  Employee Name .</b><br><span>Select first_name Employee Name from employee;</span><br></li>
+<li><b>Get Joining Date and Time from employee table.</b><br><span>select to_char(joining_date,'dd/mm/yyyy hh:mi:ss') from employee;</span><br></li>
+<li><b>Get Last Name from employee table after replacing special character with white space.</b><br><span>Select translate(last_name,'%',' ') from employee;</span><br></li>
+<li><b>Get length of first_name from employee table.</b><br><span>select len(first_name) from employee;</span><br></li>
+<li><b>Get position of 'o' in name 'John' from employee table.</b><br><span>Select instr(first_name,'o') from employee where first_name='John';</span><br></li>
+<li><b>How can I create an empty table employee1 with same structure as employee?</b><br><span>Create table employee1 as select * from employee where 1=2;</span><br></li>
+<li><b>How To Copy Data From One Table to Another Table Having Data?</b><br><span>INSERT INTO T1
+        (
+        SELECT
+        C5,
+        C6,
+        C7,
+        C8
+        FROM T2);</span><br></li>
+<li><b>How to delete duplicate rows in a table?</b><br><span>delete from employee a where rowid != (select max(rowid) from employee b where  a.empno=b.empno);</span><br></li>
+<li><b>How to fetch data that are common in two query results ?</b><br><span>select * from employee where employee_id INTERSECT select * from employee where employee_id < 4;</span><br></li>
+<li><b>How to fetch only common records from two tables employee and employee1?</b><br><span>(Select * from employee) Intersect (Select * from employee1);</span><br></li>
+<li><b>How to find the 9th row in employee table?</b><br><span>Select ename,Sal from employee
+        where rownum < 10 minus Select ename,Sal from employee
+        where rownum < 9;</span><br></li>
+<li><b>How to get 3 Max salaries ?</b><br><span>select distinct sal from employee a where 3 >= (select COUNT(distinct sal) from employee b where a.sal <= b.sal) order by a.sal desc;</span><br></li>
+<li><b>How to get 3 Min salaries ?</b><br><span>select distinct sal from employee a  where 3 >= (select COUNT(distinct sal) from employee b  where a.sal >= b.sal);</span><br></li>
+<li><b>How to get nth max salaries ?</b><br><span>select distinct hiredate from employee a where &n =  (select COUNT(distinct sal) from employee b where a.sal >= b.sal);</span><br></li>
+<li><b>How to retrive record where sal between 1000 to 2000?</b><br><span>Select * from employee where sal>=1000 And  sal<2000;</span><br></li>
+<li><b>How to search for strings containing  %  in Oracle? Search for columns containing  %  in Oracle?</b><br><span>SELECT col_name FROM tbl_name
+        WHERE col_name LIKE '%?%%' ESCAPE '?';</span><br></li>
+<li><b>If there are two tables employee1 and employee2, and both have common record. How can I fetch all the recods but common records only once?</b><br><span>(Select * from employee) Union (Select * from employee1);</span><br></li>
+<li><b>Select all record from employee table where deptno =10 or 40.</b><br><span>select * from employee where deptno=30 or deptno=10;</span><br></li>
+<li><b>Select all record from employee table where deptno=30 and sal>1500.</b><br><span>select * from employee where deptno=30 and sal>1500;</span><br></li>
+<li><b>Select all records where ename may be any no of  character but it should end with  Y .</b><br><span>select * from employee where ename like'%Y';</span><br></li>
+<li><b>Select all records where ename starts with  S  and its length is 6 char.</b><br><span>select * from employee where ename like'S____';</span><br></li>
+<li><b>Select department,total salary with respect to a department from employee table where total salary greater than 900000 order by Total_Salary descending.</b><br><span>Select DEPARTMENT,SUM(SALARY) Total_Salary from employee group by DEPARTMENT having SUM(SALARY) >900000 order by Total_Salary desc;</span><br></li>
+<li><b>Select DISTINCT RECORDS from employee table.</b><br><span>select * from employee a where  rowid = (select max(rowid) from employee b where  a.empno=b.empno);</span><br></li>
+<li><b>Select employee details from employee table if data exists in tab2 table ?</b><br><span>select * from employee where exists (select * from tab2);</span><br></li>
+<li><b>Select first 3 characters of first_name from employee.</b><br><span>select substring(first_name,0,3) from employee;</span><br></li>
+<li><b>Select FIRST n records from a table.</b><br><span>select * from employee where rownum <= &n;</span><br></li>
+<li><b>Select first_name, incentive amount from employee and incentives table for those employees who have incentives.</b><br><span>Select first_name,incentive_amount from employee a inner join incentives B on A.employee_id=B.employee_ref_id;</span><br></li>
+<li><b>Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 4000.</b><br><span>Select first_name,incentive_amount from employee a inner join incentives B on A.employee_id=B.employee_ref_id and incentive_amount 4000;</span><br></li>
+<li><b>Select LAST n records from a table.</b><br><span>select * from employee minus select * from employee where rownum <= (select COUNT(*) - &n from employee);</span><br></li>
+<li><b>Select  all record  from employee where job not in CASHIER  or ACCOUNTANT.</b><br><span>select * from employee where job not in ('CASHIER','ACCOUNTANT');</span><br></li>
+<li><b>SQL Query to find Max Salary from each department.</b><br><span>SELECT DeptID, MAX(Salary) FROM Employee  GROUP BY DeptID;</span><br></li>
+<li><b>SQL Query to find second highest salary of Employee.</b><br><span>select MAX(Salary) from Employee WHERE Salary NOT IN (select MAX(Salary) from Employee );</span><br></li>
+<li><b>Suppose there is annual salary information provided by employee table. How to fetch monthly salary of each and every employee?</b><br><span>select ename,sal/12 as monthlysal from employee;</span><br></li>
+<li><b>There is a table which contains two column Student and Marks, you need to find all the students, whose marks are greater than average marks i.e. list of above average students.</b><br><span>SELECT student, marks from table where marks > SELECT AVG(marks) from table);</span><br></li>
+<li><b>To fetch ALTERNATE records from a table. (EVEN NUMBERED).</b><br><span>select * from employee where rowid in (select decode(mod(rownum,2),0,rowid, null) from employee);</span><br></li>
+<li><b>To select ALTERNATE records from a table. (ODD NUMBERED).</b><br><span>select * from employee where rowid in (select decode(mod(rownum,2),0,null ,rowid) from employee);</span><br></li>
+<li><b>Write a SQL query to find the products which does not have sales at all.</b><br><span>SELECT P.product_NAME
+        FROM   productS P
+        LEFT OUTER JOIN
+        SALES S
+        ON     (P.product_id = S.product_id
+        WHERE  S.quantity IS NULL;</span><br></li>
+<li><b>Write SQL Query to find duplicate rows in a database.</b><br><span>SELECT * FROM employee a WHERE rowid = (SELECT MAX(rowid) FROM employee b WHERE a.empno=b.empno);</span><br></li>
+
+        <li><b>SQL Amaze</b> <br><img width="100%" src="sqlamaze.gif"/></li>
+
+</ol>
+
+</body>
+</html>

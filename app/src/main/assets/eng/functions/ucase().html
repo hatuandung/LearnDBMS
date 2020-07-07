@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="" />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL UCASE() Function</h1>
+<hr />
+<h2>The UCASE() Function</h2>
+<p>The UCASE() function converts the value of a field to uppercase.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>SQL UCASE() Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT UCASE(column_name) FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>Syntax for SQL Server</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT UPPER(column_name) FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL UCASE() Example</h2>
+<p>We have the following "Persons" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+</table>
+<p>Now we want to select the content of the "LastName" and "FirstName" columns above, and convert the "LastName" column to uppercase.</p>
+<p>We use the following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT UCASE(LastName) as LastName,FirstName FROM Persons</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+  </tr> 
+  <tr> 
+    <td>JAMESON</td> 
+    <td>John</td> 
+  </tr> 
+  <tr>  
+    <td>SMITH</td> 
+    <td>Kate</td> 
+  </tr> 
+  <tr> 
+    <td>KRISTENSEN</td> 
+    <td>Olya</td> 
+  </tr> 
+</table>
+</body>
+</html>

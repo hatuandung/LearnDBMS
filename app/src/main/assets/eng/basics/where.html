@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL WHERE Clause</h1>
+<p>The WHERE clause is used to filter records.</Б.
+><hr>
+<h2>The WHERE Clause</h2>
+<p>The WHERE clause is used to extract only those records that fulfill a specified criterion.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td> 
+<h3>SQL WHERE Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT column_name(s)<br />
+FROM table_name<br />
+WHERE column_name operator value</td> 
+  </tr> 
+</table> 
+</td> 
+</tr> 
+</table>
+<hr />
+<h2>WHERE Clause Example</h2>
+<p>The "Persons" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+    <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+</table>
+<p>Now we want to select only the persons living in the city "Sander" from the table above.</p>
+<p>We use the following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM Persons<br />
+WHERE City='Sander'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+    <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+</table>
+<hr />
+<h2>Quotes Around Text Fields</h2>
+<p>SQL uses single quotes around text values (most database systems will also accept double quotes).</p>
+<p>Although, numeric values should not be enclosed in quotes.</p>
+<p>For text values:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td><p>This is correct:</p>
+<p>SELECT * FROM Persons WHERE FirstName='Antony'</p>
+<p>This is wrong:</p>
+<p>SELECT * FROM Persons WHERE FirstName=Antony</p></td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>For numeric values:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td><p>This is correct:</p>
+<p>SELECT * FROM Persons WHERE Year=1985</p>
+<p>This is wrong:</p>
+<p>SELECT * FROM Persons WHERE Year='1985'</p></td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>Operators Allowed in the WHERE Clause</h2>
+<p>With the WHERE clause, the following operators can be used:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Operator</th> 
+    <th>Discription</th> 
+  </tr> 
+    <tr> 
+    <td>=</td> 
+    <td>Equal</td> 
+  </tr> 
+    <tr> 
+    <td><></td> 
+    <td>Not equal</td> 
+  </tr> 
+  </tr> 
+  <tr> 
+    <td>></td> 
+    <td>Greater than</td> 
+  </tr> 
+  </tr> 
+  <tr> 
+    <td><</td> 
+    <td>Less than</td> 
+  </tr>
+  </tr> 
+  <tr> 
+    <td>>=</td> 
+    <td>Greater than or equal</td> 
+  </tr> 
+  <tr> 
+    <td><=</td> 
+    <td>Less than or equal</td> 
+  </tr> 
+  </tr> 
+  <tr> 
+    <td>BETWEEN</td> 
+    <td>Between an inclusive range</td> 
+  </tr>
+  </tr> 
+  <tr> 
+    <td>LIKE</td> 
+    <td>Search for a pattern</td> 
+  </tr> 
+  <tr> 
+    <td>IN</td> 
+    <td>If you know the exact value you want to return for at least one of the columns</td> 
+  </tr> 
+</table>
+<p><b>Note:</b> In some versions of SQL the <> operator may be written as !=</p>
+</body>
+</html>

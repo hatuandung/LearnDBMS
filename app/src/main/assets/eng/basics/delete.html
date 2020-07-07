@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL DELETE Statement</h1>
+<p>The DELETE statement is used to delete records in a table.</p>
+<hr />
+<h2>The DELETE Statement</h2>
+<p>The DELETE statement is used to delete rows in a table.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>SQL DELETE Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>DELETE FROM table_name<br />
+WHERE some_column=some_value</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p><img border="0" src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> Notice the WHERE clause in the DELETE syntax. The WHERE clause specifies which record or records that should be deleted. If you omit the WHERE clause, all records will be deleted!</p>
+<hr />
+<h2>SQL DELETE Example</h2>
+<p>The "Persons" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+    <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+  <tr> 
+    <td>4</td> 
+    <td>Nilsen</td> 
+    <td>Tomas</td> 
+    <td>Kity 91</td>
+    <td>Stavn</td>
+  </tr> 
+  <tr> 
+    <td>5</td> 
+    <td>Mason</td> 
+    <td>Adam</td> 
+    <td>Fifte 67</td>
+    <td>Sander</td>
+  </tr>
+</table>
+<p>Now we want to delete the person "Mason, Adam" in the "Persons" table.</p>
+<p>We use the following SQL statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>DELETE FROM Persons<br />
+WHERE LastName='Mason' AND FirstName='Adam'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The "Persons" table will now look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+  <tr> 
+    <td>4</td> 
+    <td>Nilsen</td> 
+    <td>Tomas</td> 
+    <td>Kity 91</td>
+    <td>Stavn</td>
+  </tr> 
+</table>
+<hr />
+<h2>Delete All Rows</h2>
+<p>It is possible to delete all rows in a table without deleting the table. This means that the table structure, attributes, and indexes will be intact:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>DELETE FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>or</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>DELETE * FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p><img border="0" src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> Be very careful when deleting records. You cannot undo this statement!</p>
+</body>
+</html>

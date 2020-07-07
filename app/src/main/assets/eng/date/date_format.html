@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>MySQL DATE_FORMAT() Function</h1>
+<hr />
+<h2>Definition and Usage</h2>
+<p>The DATE_FORMAT() function is used to display date/time data in different formats.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>DATE_FORMAT(date,format)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>Where <i>date</i> is a valid date and <i>format</i> specifies the output format for the date/time.</p>
+<p>The formats that can be used are</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Format</th>
+    <th>Description</th> 
+  </tr> 
+  <tr> 
+    <td>%a</td>
+    <td>Abbreviated weekday name</td> 
+  </tr> 
+  <tr> 
+    <td>%b</td>
+    <td>Abbreviated month name</td> 
+  </tr> 
+  <tr> 
+    <td>%c</td>
+    <td>Month, numeric</td> 
+  </tr> 
+  <tr> 
+    <td>%D</td>
+    <td>Day of month with English suffix</td> 
+  </tr> 
+  <tr> 
+    <td>%d</td>
+    <td>Day of month, numeric (00-31)</td> 
+  </tr> 
+  <tr> 
+    <td>%e</td>
+    <td>Day of month, numeric (0-31)</td> 
+  </tr> 
+  <tr> 
+    <td>%f</td>
+    <td>Microseconds</td> 
+  </tr> 
+  <tr> 
+    <td>%H</td>
+    <td>Hour (00-23)</td> 
+  </tr>
+  <tr> 
+    <td>%h</td>
+    <td>Hour (01-12)</td> 
+  </tr>
+  <tr> 
+    <td>%I</td>
+    <td>Hour (01-12)</td> 
+  </tr>
+  <tr> 
+    <td>%i</td>
+    <td>Minutes, numeric (00-59)</td> 
+  </tr>
+  <tr> 
+    <td>%j</td>
+    <td>Day of year (001-366)</td> 
+  </tr>
+  <tr> 
+    <td>%k</td>
+    <td>Hour (0-23)</td> 
+  </tr>
+  <tr> 
+    <td>%l</td>
+    <td>Hour (1-12)</td> 
+  </tr>
+  <tr> 
+    <td>%M</td>
+    <td>Month name</td> 
+  </tr>
+  <tr> 
+    <td>%m</td>
+    <td>Month, numeric (00-12)</td> 
+  </tr>
+  <tr> 
+    <td>%p</td>
+    <td>AM or PM</td> 
+  </tr>
+  <tr> 
+    <td>%r</td>
+    <td>Time, 12-hour (hh:mm:ss AM or PM)</td> 
+  </tr>
+  <tr> 
+    <td>%S</td>
+    <td>Seconds (00-59)</td> 
+  </tr>
+  <tr> 
+    <td>%s</td>
+    <td>Seconds (00-59)</td> 
+  </tr>
+  <tr> 
+    <td>%T</td>
+    <td>Time, 24-hour (hh:mm:ss)</td> 
+  </tr>
+  <tr> 
+    <td>%U</td>
+    <td>Week (00-53) where Sunday is the first day of week</td> 
+  </tr>
+  <tr> 
+    <td>%u</td>
+    <td>Week (00-53) where Monday is the first day of week</td> 
+  </tr>
+  <tr> 
+    <td>%V</td>
+    <td>Week (01-53) where Sunday is the first day of week, used with %X</td> 
+  </tr>
+  <tr> 
+    <td>%v</td>
+    <td>Week (01-53) where Monday is the first day of week, used with %x</td> 
+  </tr>
+  <tr> 
+    <td>%W</td>
+    <td>Weekday name</td> 
+  </tr>
+  <tr> 
+    <td>%w</td>
+    <td>Day of the week (0=Sunday, 6=Saturday)</td> 
+  </tr>
+  <tr> 
+    <td>%X</td>
+    <td>Year of the week where Sunday is the first day of week, four digits, used with %V</td> 
+  </tr>
+  <tr> 
+    <td>%x</td>
+    <td>Year of the week where Monday is the first day of week, four digits, used with %v</td> 
+  </tr>
+  <tr> 
+    <td>%Y</td>
+    <td>Year, four digits</td> 
+  </tr>
+  <tr> 
+    <td>%y</td>
+    <td>Year, two digits</td> 
+  </tr>
+</table>
+<hr />
+<h2>Example</h2>
+<p>The following script uses the DATE_FORMAT() function to display different formats. We will use the NOW() function to get the current date/time:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p')<br />
+DATE_FORMAT(NOW(),'%m-%d-%Y')<br />
+DATE_FORMAT(NOW(),'%d %b %y')<br />
+DATE_FORMAT(NOW(),'%d %b %Y %T:%f') </td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result would look something like this:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>Dec 21 2011 09:31 AM<br />
+12-21-2011<br />
+21 Dec 11<br />
+21 Dec 2011 09:31:48:567 </td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+</body>
+</html>

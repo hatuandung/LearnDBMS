@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL UNIQUE Constraint</h1>
+<p>The UNIQUE constraint uniquely identifies each record in a database table.</p>
+<hr />
+<h2>The SQL UNIQUE Constraint</h2>
+<p>The UNIQUE and PRIMARY KEY constraints both provide a guarantee for uniqueness for a column or set of columns.</p>
+<p>A PRIMARY KEY constraint automatically has a UNIQUE constraint defined on it.</p>
+<p>Note that you can have many UNIQUE constraints per table, but only one PRIMARY KEY constraint per table.</p>
+<hr />
+<h2>SQL UNIQUE Constraint on CREATE TABLE</h2>
+<p>The following SQL creates a UNIQUE constraint on the "P_Id" column when the "Persons" table is created:</p>
+<b>MySQL:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Persons<br />(<br />P_Id int NOT NULL,<br />LastName varchar(255) NOT NULL,<br />FirstName varchar(255),<br />
+Address varchar(255),<br />City varchar(255),<br />UNIQUE (P_Id)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<b>SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Persons<br />(<br />P_Id int NOT NULL UNIQUE,<br />LastName varchar(255) NOT NULL,<br />FirstName varchar(255),<br />Address varchar(255),<br />City varchar(255)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>To allow naming of a UNIQUE constraint, and for defining a UNIQUE constraint on multiple columns, use the following SQL syntax:</p>
+<b>MySQL / SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Persons<br />(<br />P_Id int NOT NULL,<br />LastName varchar(255) NOT NULL,<br />FirstName varchar(255),<br />Address varchar(255),<br />City varchar(255),<br />CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL UNIQUE Constraint on ALTER TABLE</h2>
+<p>To create a UNIQUE constraint on the "P_Id" column when the table is already created, use the following SQL:</p>
+<b>MySQL / SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />ADD UNIQUE (P_Id)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>To allow naming of a UNIQUE constraint, and for defining a UNIQUE constraint on multiple columns, use the following SQL syntax:</p>
+<b>MySQL / SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />ADD CONSTRAINT uc_PersonID UNIQUE (P_Id,LastName)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>To DROP a UNIQUE Constraint</h2>
+<p>To drop a UNIQUE constraint, use the following SQL:</p>
+<b>MySQL:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />DROP INDEX uc_PersonID</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<b>SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />DROP CONSTRAINT uc_PersonID</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+</body>
+</html>

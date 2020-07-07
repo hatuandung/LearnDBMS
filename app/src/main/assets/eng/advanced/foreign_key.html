@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL FOREIGN KEY Constraint</h1>
+<p>A FOREIGN KEY in one table points to a PRIMARY KEY in another table.</p>
+<p>The purpose of the foreign key is to ensure referential integrity of the data. In other words, only values that are supposed to appear in the database are permitted. </p>
+<hr />
+<h2>The SQL FOREIGN KEY Constraint</h2>
+<p>Let's illustrate the foreign key with an example. Look at the following two tables:</p>
+<p>The "Persons" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+</table>
+<p>The "Orders" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>O_Id</th> 
+    <th>Order_No</th> 
+    <th>P_Id</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>77895</td> 
+    <td>3</td> 
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>44678</td> 
+    <td>3</td> 
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>22456</td> 
+    <td>2</td> 
+  </tr> 
+  <tr> 
+    <td>4</td> 
+    <td>24562</td> 
+    <td>1</td> 
+  </tr> 
+</table>
+<p><b>Note</b> that the "P_Id" column in the "Orders" table points to the "P_Id" column in the "Persons" table.</p>
+<p>The "P_Id" column in the "Persons" table is the PRIMARY KEY in the "Persons" table.</p>
+<p>The "P_Id" column in the "Orders" table is a FOREIGN KEY in the "Orders" table.</p>
+<p>The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables.</p>
+<p>The FOREIGN KEY constraint also prevents that invalid data form being inserted into the foreign key column, because it has to be one of the values contained in the table it points to.</p>
+<hr />
+<h2>SQL FOREIGN KEY Constraint on CREATE TABLE</h2>
+<p>The following SQL creates a FOREIGN KEY on the "P_Id" column when the "Orders" table is created:</p>
+<b>MySQL:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Orders<br />(<br />O_Id int NOT NULL,<br />OrderNo int NOT NULL,<br />P_Id int,<br />PRIMARY KEY (O_Id),<br />
+FOREIGN KEY (P_Id) REFERENCES Persons(P_Id)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<b>SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Orders<br />(<br />O_Id int NOT NULL PRIMARY KEY,<br />OrderNo int NOT NULL,<br />P_Id int FOREIGN KEY REFERENCES Persons(P_Id)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>To allow naming of a FOREIGN KEY constraint, and for defining a FOREIGN KEY constraint on multiple columns, use the following SQL syntax:</p>
+<b>MySQL / SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Orders<br />(<br />O_Id int NOT NULL,<br />OrderNo int NOT NULL,<br />P_Id int,<br />PRIMARY KEY (O_Id),<br />
+CONSTRAINT fk_PerOrders FOREIGN KEY (P_Id)<br />REFERENCES Persons(P_Id)<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL FOREIGN KEY Constraint on ALTER TABLE</h2>
+<p>To create a FOREIGN KEY constraint on the "P_Id" column when the "Orders" table is already created, use the following SQL:</p>
+<b>MySQL / SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Orders<br />ADD FOREIGN KEY (P_Id)<br />REFERENCES Persons(P_Id)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>To allow naming of a FOREIGN KEY constraint, and for defining a FOREIGN KEY constraint on multiple columns, use the following SQL syntax:</p>
+<b>MySQL / SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Orders<br />ADD CONSTRAINT fk_PerOrders<br />FOREIGN KEY (P_Id)<br />REFERENCES Persons(P_Id)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>To DROP a FOREIGN KEY Constraint</h2>
+<p>To drop a FOREIGN KEY constraint, use the following SQL:</p>
+<b>MySQL:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Orders<br />DROP FOREIGN KEY fk_PerOrders</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<b>SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Orders<br />DROP CONSTRAINT fk_PerOrders</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+</body>
+</html>

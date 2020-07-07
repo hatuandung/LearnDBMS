@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="" />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL RIGHT JOIN Keyword</h1>
+<hr />
+<h2>The SQL RIGHT JOIN Keyword</h2>
+<p>The RIGHT JOIN keyword returns all the rows from the right table (table_name2), even if there are no matches in the left table (table_name1).</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>SQL RIGHT JOIN Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT column_name(s)<br />FROM table_name1<br />RIGHT JOIN table_name2<br />
+ON table_name1.column_name = table_name2.column_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p><b>Note:</b> In some databases RIGHT JOIN is called RIGHT OUTER JOIN.</p>
+<hr />
+<h2>SQL RIGHT JOIN Example</h2>
+<p>The "Persons" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+</table>
+<p>The "Orders" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>O_Id</th> 
+    <th>Order_No</th> 
+    <th>P_Id</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>77895</td> 
+    <td>3</td> 
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>44678</td> 
+    <td>3</td> 
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>22456</td> 
+    <td>1</td> 
+  </tr> 
+  <tr> 
+    <td>4</td> 
+    <td>24562</td> 
+    <td>1</td> 
+  </tr> 
+  <tr> 
+    <td>5</td> 
+    <td>34764</td> 
+    <td>12</td> 
+  </tr> 
+</table>
+<p>Now we want to list all the orders with containing persons - if any, from the tables above.</p>
+<p>We use the following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo<br />FROM Persons<br />RIGHT JOIN Orders<br />
+ON Persons.P_Id=Orders.P_Id<br />
+ORDER BY Persons.LastName</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>OrderNo</th> 
+  </tr> 
+  <tr>  
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>22456</td>
+  </tr> 
+  <tr> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>24562</td>
+  </tr> 
+  <tr> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>77895</td>
+  </tr> 
+  <tr> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>44678</td>
+  </tr> 
+  <tr>  
+    <td> </td> 
+    <td> </td> 
+    <td>34764</td>
+  </tr> 
+</table>
+<p>The RIGHT JOIN keyword returns all the rows from the right table (Orders), even if there are no matches in the left table (Persons).</p>
+</body>
+</html>

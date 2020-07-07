@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL Syntax</h1>
+<hr />
+<h2>Database Tables</h2>
+<p>A database most often contains one or more tables. Each table is identified by a name (e.g. "Customers" or "Orders"). Tables contain records (rows) with data.</p>
+<p>Below is an example of a table called "Persons":</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+    <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+</table>
+<p>The table above contains three records (one for each person) and five columns (P_Id, LastName, FirstName, Address, and City).</p>
+<hr />
+<h2>SQL Statements</h2>
+<p>Most of the actions you need to perform on a database are done with SQL statements.</p>
+<p>The following SQL statement will select all the records in the "Persons" table:</p><table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM Persons</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>In this tutorial we will teach you all about the different SQL statements.</p>
+<hr />
+<h2>Keep in Mind That...</h2>
+<p><b>SQL is not case sensitive!</b></p>
+<hr />
+<h2>Semicolon after SQL Statements?</h2>
+<p>Some database systems require a semicolon at the end of each SQL statement.</p>
+<p>Semicolon is the standard way to separate each SQL statement in database systems that allow more than one SQL statement to be executed in the same call to the server.</p>
+<p>We are using MS Access and SQL Server 2000 and we do not have to put a semicolon after each SQL statement, but some database programs force you to use it.</p>
+<hr />
+<h2>SQL DML and DDL</h2>
+<p>SQL can be divided into two parts: The Data Manipulation Language (DML) and the Data Definition Language (DDL).</p>
+<p>The query and update commands form the DML part of SQL:
+<ul>
+  <li>SELECT - extracts data from a database
+  <li>UPDATE - updates data in a database
+  <li>DELETE - deletes data from a database
+  <li>INSERT INTO - inserts new data into a database
+</ul>
+</p>
+<p>The DDL part of SQL permits database tables to be created or deleted. It also defines indexes (keys), specifies links between tables, and imposes constraints between tables. The most important DDL statements in SQL are:
+<ul>
+  <li>CREATE DATABASE - creates a new database
+  <li>ALTER DATABASE - modifies a database
+  <li>CREATE TABLE - creates a new table
+  <li>ALTER TABLE - modifies a table
+  <li>DROP TABLE - deletes a table
+  <li>CREATE INDEX - creates an index (search key)
+  <li>DROP INDEX - deletes an index
+</ul>
+</p>
+</body>
+</html>

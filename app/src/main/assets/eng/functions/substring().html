@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL SUBSTRING() Function</h1>
+<hr />
+<h2>The SUBSTRING() function</h2>
+<p>The SUBSTRING() function is used to get part of a string.</p>
+<hr />
+<h2>SQL SUBSTRING Syntax</h2>
+<p>This function is called differently for the different databases.</p>
+<h3>MySQL Syntax</h3>
+<p>MySQL supports two ways of using this function:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SUBSTR(column_name, start_position[, length])<br />FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>or</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SUBSTRING(column_name, start_position[, length])<br />FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>Oracle Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SUBSTR(column_name, start_position[, length])<br />FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>SQL Server Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SUBSTRING(column_name, start_position, length)<br />FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Parameter</th> 
+    <th>Description</th>
+  </tr> 
+  <tr> 
+    <td>column_name</td> 
+    <td>Required. The field to extract characters from</td> 
+  </tr> 
+  <tr>  
+    <td>start</td> 
+    <td>Required. Specifies the starting position (starts at 1)</td> 
+  </tr> 
+  <tr> 
+    <td>length</td> 
+    <td>Optional. The number of characters to return. If omitted, the SUBSTRING() function returns the rest of the text</td> 
+  </tr> 
+</table>
+<p><img border="0" src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> following syntax is not supported in SQL Server:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SUBSTR(column_name, start_position)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL SUBSTRING() Examples</h2>
+<p>The "Persons" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+</table>
+<p>Now we want to get the first characters from "FirstName" column.</p>
+<p>We use the following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT LastName, SUBSTR(FirstName, 1, 1) AS Initial<br />FROM Persons</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>LastName</th> 
+    <th>Initial</th>
+  </tr> 
+  <tr> 
+    <td>Jameson</td> 
+    <td>J</td> 
+  </tr> 
+  <tr> 
+    <td>Smith</td> 
+    <td>K</td> 
+  </tr> 
+  <tr> 
+    <td>Kristensen</td> 
+    <td>O</td> 
+  </tr> 
+</table>
+<p>In the second example we want to get the last two characters from the "FirstName" column.</p>
+<p>We use the following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT LastName, SUBSTR(FirstName, -2, 2) AS LastChars<br />FROM Persons</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>LastName</th> 
+    <th>LastChars</th>
+  </tr> 
+  <tr> 
+    <td>Jameson</td> 
+    <td>hn</td> 
+  </tr> 
+  <tr> 
+    <td>Smith</td> 
+    <td>te</td> 
+  </tr> 
+  <tr> 
+    <td>Kristensen</td> 
+    <td>ya</td> 
+  </tr> 
+</table>
+<body>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL SELECT Statement</h1>
+<p>What do we use SQL commands for? A common use is to select data from the tables located in a database. Immediately, we see two keywords: we need to <b>SELECT</b> information <b>FROM</b> a table.
+<p><b>Note</b> that a table is a container that resides in the database where the data is stored.</p>
+<hr />
+<h2>The SQL SELECT Statement</h2>
+<p>The SELECT statement is used to select data from a database.</p>
+<p>The result is stored in a result table, called the result-set.</p>
+<h3>SQL SELECT Syntax</h3>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT column_name(s)<br />
+FROM table_name</td> 
+  </tr> 
+</table>
+</td>
+</tr>
+</table>
+<p>and</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM table_name</td> 
+  </tr> 
+</table>
+</td> 
+</tr>
+</table>
+<p><img border="0" src="file:///android_asset/css/lamp.gif" style="float:left" /><b>Note:</b> SQL is not case sensitive. <i>SELECT</i> is the same as <i>select</i>.</p>
+<hr />
+<h2>SQL SELECT Example</h2>
+<p>The "Persons" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+    <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+</table>
+<p>We shall use this table as an example throughout the tutorial (this table will appear in all sections).</p>
+<p>Now we want to select the content of the columns named "LastName" and "FirstName" from the table above.</p>
+<p>We use the following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT LastName,FirstName FROM Persons</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+  </tr> 
+    <tr>  
+    <td>Jameson</td> 
+    <td>John</td> 
+  </tr> 
+    <tr>  
+    <td>Smith</td> 
+    <td>Kate</td> 
+  </tr> 
+    <tr>  
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+  </tr> 
+</table>
+<hr />
+<h2>SELECT * Example</h2>
+<p>Now we want to select all the columns from the "Persons" table.</p>
+<p>We use the following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT * FROM Persons</td> 
+  </tr> 
+</table>
+</td> 
+</tr>
+</table>
+<p><b>Tip:</b> The asterisk (*) is a quick way of selecting all columns!</p>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>P_Id</th> 
+    <th>LastName</th> 
+    <th>FirstName</th>
+    <th>Address</th> 
+    <th>City</th> 
+  </tr> 
+    <tr> 
+    <td>1</td> 
+    <td>Jameson</td> 
+    <td>John</td> 
+    <td>Streets 15</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>2</td> 
+    <td>Smith</td> 
+    <td>Kate</td> 
+    <td>Green 68</td>
+    <td>Sander</td>
+  </tr> 
+    <tr> 
+    <td>3</td> 
+    <td>Kristensen</td> 
+    <td>Olya</td> 
+    <td>Ski 2</td>
+    <td>Stavn</td>
+  </tr> 
+</table>
+<hr />
+<h2>Navigation in a Result-set</h2>
+<p>Most database software systems allow navigation in the result-set with programming functions, like: Move-To-First-Record, Get-Record-Content, Move-To-Next-Record, etc.</p>
+<p>Programming functions like these are not a part of this tutorial. To learn about accessing data with function calls, please read ADO manual or PHP manual.</p>
+</body>
+</html>

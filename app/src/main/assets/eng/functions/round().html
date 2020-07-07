@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="" />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL ROUND() Function</h1>
+<hr />
+<h2>The ROUND() Function</h2>
+<p>The ROUND() function is used to round a numeric field to the number of decimals specified.</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<h3>SQL ROUND() Syntax</h3>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT ROUND(column_name,decimals) FROM table_name</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Parameter</th> 
+    <th>Description</th>
+  </tr> 
+  <tr> 
+    <td>column_name</td> 
+    <td>Required. The field to round.</td> 
+  </tr> 
+  <tr>  
+    <td>decimals</td> 
+    <td>Required. Specifies the number of decimals to be returned.</td> 
+  </tr> 
+</table>
+<hr />
+<h2>SQL ROUND() Example</h2>
+<p>We have the following "Products" table:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>Pr_Id</th> 
+    <th>ProductName</th> 
+    <th>Unit</th>
+    <th>UnitPrice</th> 
+  </tr> 
+  <tr> 
+    <td>1</td> 
+    <td>Potatoes</td> 
+    <td>1 kg</td> 
+    <td>2.38</td>
+  </tr> 
+  <tr> 
+    <td>2</td> 
+    <td>Pears</td> 
+    <td>1 kg</td> 
+    <td>4.51</td>
+  </tr> 
+  <tr> 
+    <td>3</td> 
+    <td>Cherries</td> 
+    <td>1 kg</td> 
+    <td>5.98</td>
+  </tr> 
+</table>
+<p>Now we want to display the product name and the price rounded to the nearest integer.</p>
+<p>We use the following SELECT statement:</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>SELECT ProductName, ROUND(UnitPrice,0) as UnitPrice FROM Products</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The result-set will look like this:</p>
+<table class="reference" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <th>ProductName</th> 
+    <th>UnitPrice</th>
+  </tr> 
+  <tr> 
+    <td>Potatoes</td> 
+    <td>2</td> 
+  </tr> 
+  <tr>  
+    <td>Pears</td> 
+    <td>5</td> 
+  </tr> 
+  <tr> 
+    <td>Cherries</td> 
+    <td>6</td> 
+  </tr> 
+</table>
+</body>
+</html>

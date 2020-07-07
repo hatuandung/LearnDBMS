@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="Background sets all background properties in one statement. Learn more with a mobile CSS reference." />
+<title></title>
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+</head>
+
+<body>
+<h1>SQL DEFAULT Constraint</h1>
+<hr />
+<h2>The SQL DEFAULT Constraint</h2>
+<p>The DEFAULT constraint is used to insert a default value into a column when the INSERT INTO statement does not provide a specific value.</p>
+<p>The default value will be added to all new records, if no other value is specified.</p>
+<hr />
+<h2>SQL DEFAULT Constraint on CREATE TABLE</h2>
+<p>The following SQL creates a DEFAULT constraint on the "City" column when the "Persons" table is created:</p>
+<b>SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Persons<br />(<br />P_Id int NOT NULL,<br />LastName varchar(255) NOT NULL,<br />FirstName varchar(255),<br />
+Address varchar(255),<br />City varchar(255) DEFAULT 'Sander'<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<p>The DEFAULT constraint can also be used to insert system values, by using functions like GETDATE():</p>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>CREATE TABLE Orders<br />(<br />O_Id int NOT NULL,<br />OrderNo int NOT NULL,<br />P_Id int,<br />
+OrderDate date DEFAULT GETDATE()<br />)</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>SQL DEFAULT Constraint on ALTER TABLE</h2>
+<p>To create a DEFAULT constraint on the "City" column when the table is already created, use the following SQL:</p>
+<b>MySQL:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />ALTER City SET DEFAULT 'SANDER'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<b>SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />ALTER COLUMN City SET DEFAULT 'SANDER'</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<hr />
+<h2>To DROP a DEFAULT Constraint</h2>
+<p>To drop a DEFAULT constraint, use the following SQL:</p>
+<b>MySQL:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />ALTER City DROP DEFAULT</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+<br />
+<b>SQL Server / Oracle / MS Access:</b>
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+<tr> 
+<td>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"> 
+  <tr> 
+    <td>ALTER TABLE Persons<br />ALTER COLUMN City DROP DEFAULT</td> 
+  </tr> 
+</table> 
+</td> 
+</tr>
+</table>
+</body>
+</html>

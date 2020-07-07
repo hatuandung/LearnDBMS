@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="../../android_asset/css/style.css" />
+<style>
+
+img{
+width:100%;}
+</style>
+<div class="container">
+<div class="row">
+
+
+
+
+<div class="span9">
+<div id="body-content">
+<h3>E-R Diagram</h3>
+<p>
+ER-Diagram is a visual representation of data that describes how data is related to each other. 
+</p>
+<p class="center"><img src="./erdiagram_files/er-diagram.jpg" alt="example of er-diagram"></p>
+<hr>
+<h4>Symbols and Notations</h4>
+<p class="center"><img src="./erdiagram_files/er-diagram-symbol.png" alt="ER diagrams symbols">
+</p>
+<hr>
+<h3>Components of E-R Diagram</h3>
+<p>
+The E-R diagram has three main components. 
+</p>
+<h4>1) Entity</h4>
+<p>
+An <b>Entity</b> can be any object, place, person or class. In E-R Diagram, an <b>entity</b> is represented using rectangles. Consider an example of an Organisation. Employee, Manager, Department, Product and many more can be taken as entities from an Organisation.  
+</p>
+<p class="center"><img src="./erdiagram_files/entity-example.jpg" alt="Entity example"></p>
+<hr>
+<h4>Weak Entity</h4>
+<p>
+Weak entity is an entity that depends on another entity. Weak entity doen't have key attribute of their own. Double rectangle represents weak entity. 
+</p>
+<p class="center"><img src="./erdiagram_files/weak-entity-example.jpg" alt="weak Entity example"></p>
+<hr>
+<h4>2) Attribute</h4>
+<p>An <b>Attribute</b> describes a property or characterstic of an entity. For example, Name, Age, Address etc can be attributes of a Student. An attribute is represented using eclipse.</p>
+<p class="center"><img src="./erdiagram_files/attribute-example.jpg" alt="attribute example"></p>
+<hr>
+<h4>Key Attribute</h4>
+<p>Key attribute represents the main characterstic of an Entity. It is used to represent Primary key. Ellipse with underlying lines represent Key Attribute.</p>
+<p class="center"><img src="./erdiagram_files/key-attribute-example.jpg" alt="key attribute example"></p>
+<hr>
+<h4>Composite Attribute</h4>
+<p>An attribute can also have their own attributes. These attributes are known as <b>Composite</b> attribute.</p>
+<p class="center"><img src="./erdiagram_files/composite-attribute-example.jpg" alt="composite attribute example"></p>
+<hr>
+<h4>3) Relationship</h4>
+<p>
+A Relationship describes relations between <b>entities</b>. Relationship is represented using diamonds.  
+</p>
+<p class="center"><img src="./erdiagram_files/relationship-example.jpg" alt="relationship example"></p>
+
+<p>There are three types of relationship that exist between Entities.</p>
+<ul class="content">
+<li>Binary Relationship</li>
+<li>Recursive Relationship</li>
+<li>Ternary Relationship</li>
+</ul>
+<hr>
+<h4>Binary Relationship</h4>
+<p>Binary Relationship means relation between two Entities. This is further divided into three types.</p>
+<ol class="content">
+<li><b>One to One :</b> This type of relationship is rarely seen in real world.</li>
+<p class="center"><img src="./erdiagram_files/one-to-one-example.jpg" alt="one-to-one example"></p>
+<p>The above example describes that one student can enroll only for one course and a course will also have only one Student. This is not what you will usually see in relationship.</p>
+<li><b>One to Many :</b> It reflects business rule that one entity is associated with many number of same entity. The example for this relation might sound a little weird, but this menas that one student can enroll to many courses, but one course will have one Student.</li>
+<p class="center"><img src="./erdiagram_files/one-to-many-example.jpg" alt="one-to-many example"></p>
+<p>The arrows in the diagram describes that one student can enroll for only one course.</p>
+
+<li><b>Many to One :</b> It reflects business rule that many entities can be associated with just one entity. For example, Student enrolls for only one Course but a Course can have many Students.</li>
+<p class="center"><img src="./erdiagram_files/many-to-one.jpg" alt="one-to-many example"></p>
+
+<li><b>Many to Many :</b></li>
+<p class="center"><img src="./erdiagram_files/many-to-many-example.jpg" alt="many-to-many example"></p>
+<p>The above diagram represents that many students can enroll for more than one courses.</p></ol>
+<hr>
+<h4>Recursive Relationship</h4>
+<p>
+When an Entity is related with itself it is known as <b>Recursive</b> Relationship.
+</p>
+<p class="center"><img src="./erdiagram_files/recursive-relationship.jpg" alt="recursive relationship example"></p>
+<hr>
+<h4>Ternary Relationship</h4>
+<p>Relationship of degree three is called Ternary relationship.</p>
+<hr>
+</div>
+</div>
+</div>
+</div> 
