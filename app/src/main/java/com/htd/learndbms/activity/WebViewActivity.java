@@ -35,29 +35,34 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_web_view);
         setTitle();
         initViews();
-
-        Intent intent = getIntent();
-        String url = intent.getStringExtra("html");
-        Log.e("TAG", "CHECK URL:" + url);
-        WebSettings webSetting = wvChapter.getSettings();
-        webSetting.setJavaScriptEnabled(true);
-        webSetting.setDomStorageEnabled(true);
-        wvChapter.loadUrl(url);
     }
 
+    @SuppressLint("JavascriptInterface")
     private void initViews(){
         wvChapter = findViewById(R.id.wv_chapter);
         imgBack = findViewById(R.id.btn_back);
         imgNext = findViewById(R.id.btn_next);
+
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("html");
+        Log.e("TAG", "CHECK URL:" + url);
+        wvChapter.loadUrl( url);
+        Log.e( "initViews: ", url );
+        wvChapter.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+            }
+        });
 
         imgBack.setOnClickListener(this);
         imgNext.setOnClickListener(this);
     }
 
     private void setTitle() {
-        Intent intent = getIntent();
-        String name  = intent.getStringExtra("name");
-        String id = intent.getStringExtra("id");
+        String name  = getIntent().getStringExtra("name");
+        String id = getIntent().getStringExtra("id");
+
         getSupportActionBar().setTitle(id + " : " + name);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.ic_launcher);
