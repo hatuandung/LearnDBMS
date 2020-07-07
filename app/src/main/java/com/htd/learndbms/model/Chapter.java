@@ -1,7 +1,9 @@
 package com.htd.learndbms.model;
 
 
-public class Chapter {
+import java.io.Serializable;
+
+public class Chapter implements Serializable {
     private String name ;
     private String url;
     private String id;
@@ -15,8 +17,6 @@ public class Chapter {
     public void setUrl(String url) {
         this.url = url;
     }
-
-
 
     public String getName() {
         return name;

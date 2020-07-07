@@ -28,7 +28,7 @@ public class SplashActivity extends Activity {
                     ignored.printStackTrace();
                 }
             }
-        }, 1000);
+        }, 500);
 
     }
 

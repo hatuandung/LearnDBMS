@@ -77,7 +77,6 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     }
 
-
     @Override
     public int getItemCount() {
         return chapters == null ? 0 : chapters.size();
@@ -88,7 +87,6 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         TextView txtHeader;
 
         public HeaderViewHolder(@NonNull View view) {
-
             super(view);
             txtHeader = view.findViewById(R.id.header);
         }
@@ -102,7 +100,6 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             super(itemView);
             txtItemName = itemView.findViewById(R.id.name_item);
             txtItemNumber = itemView.findViewById(R.id.txt_numberitem);
-
         }
     }
 

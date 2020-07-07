@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.Toolbar;
 
 import com.htd.learndbms.R;
+import com.htd.learndbms.adapter.CustomAdapter;
 import com.htd.learndbms.model.Chapter;
 
 import java.util.ArrayList;
@@ -28,7 +29,6 @@ import java.util.ArrayList;
 public class WebViewActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView imgBack, imgNext;
     WebView wvChapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +43,9 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         imgBack = findViewById(R.id.btn_back);
         imgNext = findViewById(R.id.btn_next);
 
-        Intent intent = getIntent();
-        String url = intent.getStringExtra("html");
+        Chapter chapter = (Chapter) getIntent().getSerializableExtra("data");
+        String url = chapter.getUrl();
+
         Log.e("TAG", "CHECK URL:" + url);
         wvChapter.loadUrl( url);
         Log.e( "initViews: ", url );
@@ -54,14 +55,19 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
                 super.onPageFinished(view, url);
             }
         });
+        wvChapter.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        wvChapter.getSettings().setBuiltInZoomControls(true);
+        wvChapter.getSettings().setDisplayZoomControls(false);
 
         imgBack.setOnClickListener(this);
         imgNext.setOnClickListener(this);
     }
 
     private void setTitle() {
-        String name  = getIntent().getStringExtra("name");
-        String id = getIntent().getStringExtra("id");
+        Chapter chapter = (Chapter) getIntent().getSerializableExtra("data");
+
+        String name  = chapter.getName();
+        String id = chapter.getId();
 
         getSupportActionBar().setTitle(id + " : " + name);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -69,16 +75,25 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
 
-
     @Override
     public void onClick(View v) {
+        String action;
+        Intent intent = new Intent();
         switch (v.getId()){
             case R.id.btn_back:
-
+                action = "back";
+                intent.putExtra("back", action);
+                setResult(RESULT_OK, intent);
+                finish();
                 break;
             case R.id.btn_next:
-
+                action = "next";
+                intent.putExtra("back", action);
+                setResult(RESULT_CANCELED, intent);
+                finish();
                 break;
         }
     }
+
+
 }

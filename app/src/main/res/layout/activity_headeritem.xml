@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:text="Basics"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textColor="#fff"/>
 
 </LinearLayout>
