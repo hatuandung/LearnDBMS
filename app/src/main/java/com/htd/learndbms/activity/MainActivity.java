@@ -118,13 +118,12 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.Cha
 
         if (requestCode == REQUEST_CODE_CHAPTER && resultCode == RESULT_OK && data != null) {
 
-            if (index > 0) {
+            if (index > 1) {
                 if (chapters.get(index - 1).getId() == null) {
                     index = index - 2;
                 } else {
                     index--;
                 }
-
                 intent(index);
             } else {
                 Toast.makeText(this, "Reached at first", Toast.LENGTH_SHORT).show();
@@ -132,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.Cha
         }
 
         if (requestCode == REQUEST_CODE_CHAPTER && resultCode == RESULT_CANCELED && data != null) {
-            if (index < chapters.size()) {
+            if (index < chapters.size() - 1) {
                 String next = data.getStringExtra("next");
                 if (chapters.get(index + 1).getId() == null || chapters.get(index).getId() == null) {
                     index = index + 2;
