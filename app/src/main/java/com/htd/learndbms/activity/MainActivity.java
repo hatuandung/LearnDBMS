@@ -19,6 +19,7 @@ import android.webkit.WebView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.htd.learndbms.BuildConfig;
 import com.htd.learndbms.R;
 import com.htd.learndbms.adapter.CustomAdapter;
 import com.htd.learndbms.model.Chapter;
@@ -55,15 +56,15 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.Cha
 
     private void getData() {
         chapters.clear();
-        chapters.add(new Chapter("Chapter One - Basics", true, "file:///android_asset/eng/basics/intro.html"));
+        chapters.add(new Chapter("Chapter One - Basics", true, "file:///android_asset/eng/basics/1.1@Introduction.html"));
         getItemData("basics", 1);
-        chapters.add(new Chapter("Chapter Two - SQL Dates", true, "file:///android_asset/eng/date/curdate.html"));
+        chapters.add(new Chapter("Chapter Two - SQL Dates", true, "file:///android_asset/eng/date/2.1@CURDATE() MySql.html"));
         getItemData("date", 2);
-        chapters.add(new Chapter("Chapter Three - Functions", true, "file:///android_asset/eng/functions/avg().html"));
+        chapters.add(new Chapter("Chapter Three - Functions", true, "file:///android_asset/eng/functions/3.1@AVG().html"));
         getItemData("functions", 3);
-        chapters.add(new Chapter("Chapter Four - Advance Topics", true, "file:///android_asset/eng/advanced/alias.html"));
+        chapters.add(new Chapter("Chapter Four - Advance Topics", true, "file:///android_asset/eng/advanced/4.1@ALIAS.html"));
         getItemData("advanced", 4);
-        chapters.add(new Chapter("Chapter five - Concepts", true, "file:///android_asset/eng/ak/coddrule.html"));
+        chapters.add(new Chapter("Chapter five - Concepts", true, "file:///android_asset/eng/ak/5.1@SQL QUERY SET.html"));
         getItemData("ak", 5);
 
         if (adapter != null) adapter.setChapters(chapters);
@@ -76,7 +77,9 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.Cha
             for (String file : assetManager.list("eng/" + path)) {
                 if (file.endsWith(".html")) {
                     String fileName = file.replace(".html", "");
-                    chapters.add(new Chapter(fileName, "file:///android_asset/eng/" + path + "/" + file, id + "." + count));
+
+                    String title = fileName.replace(fileName.substring(0, fileName.indexOf("@") + 1), "");
+                    chapters.add(new Chapter(title, "file:///android_asset/eng/" + path + "/" + file, id + "." + count));
                     count++;
                 }
             }
@@ -151,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.Cha
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_terminology:
-                intent(chapters.size() - 1);
+                intent(chapters.size() - 2);
                 break;
             case R.id.menu_rate:
                 Uri uri = Uri.parse("market://details?id=" + this.getPackageName());
@@ -166,6 +169,17 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.Cha
             case R.id.menu_disclaimer:
                 break;
             case R.id.menu_share:
+                try {
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "LEARN DBMS");
+                    String shareMessage= "\nLet me recommend you this application\n\n";
+                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                    startActivity(Intent.createChooser(shareIntent, "choose one"));
+                } catch(Exception e) {
+                    //e.toString();
+                }
                 break;
             default:
                 break;

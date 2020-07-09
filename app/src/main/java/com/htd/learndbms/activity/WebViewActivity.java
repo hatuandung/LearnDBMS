@@ -59,6 +59,13 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         wvChapter.getSettings().setBuiltInZoomControls(true);
         wvChapter.getSettings().setDisplayZoomControls(false);
 
+        wvChapter.getSettings().setAppCacheMaxSize( 5 * 1024 * 1024 ); // 5MB
+        wvChapter.getSettings().setAppCachePath( getApplicationContext().getCacheDir().getAbsolutePath() );
+        wvChapter.getSettings().setAllowFileAccess( true );
+        wvChapter.getSettings().setAppCacheEnabled( true );
+        wvChapter.getSettings().setJavaScriptEnabled( true );
+        wvChapter.getSettings().setCacheMode( WebSettings.LOAD_DEFAULT );
+
         imgBack.setOnClickListener(this);
         imgNext.setOnClickListener(this);
     }
